@@ -1,0 +1,1514 @@
+@prefix : <http://www.hkust.edu.hk/zhaojiwu/performance_based_generative_design#> .
+@prefix bot: <https://w3id.org/bot#> .
+@prefix ns1: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix ns2: <http://www.w3.org/2003/11/swrl#> .
+@prefix ns3: <https://schema.org/> .
+@prefix ns4: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ns5: <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix pgd: <http://www.hkust.edu.hk/zhaojiwu/performance_based_generative_design#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix brick: <https://brickschema.org/schema/Brick#> .
+@base <http://www.hkust.edu.hk/zhaojiwu/performance_based_generative_design#> .
+
+<http://www.hkust.edu.hk/zhaojiwu/performance_based_generative_design> rdf:type owl:Ontology .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled
+ns5:isRuleEnabled rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2003/06/sw-vocab-status/ns#term_status
+ns1:term_status rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#definition
+ns4:definition rdf:type owl:AnnotationProperty .
+
+
+###  https://schema.org/domainIncludes
+ns3:domainIncludes rdf:type owl:AnnotationProperty .
+
+
+###  https://schema.org/rangeIncludes
+ns3:rangeIncludes rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.hkust.edu.hk/zhaojiwu/performance_based_generative_design#hasActivityLevel
+pgd:hasActivityLevel rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf owl:topObjectProperty .
+
+
+###  http://www.hkust.edu.hk/zhaojiwu/performance_based_generative_design#hasAirFlow
+pgd:hasAirFlow rdf:type owl:ObjectProperty ,
+                        owl:SymmetricProperty .
+
+
+###  http://www.hkust.edu.hk/zhaojiwu/performance_based_generative_design#hasBuildingType
+pgd:hasBuildingType rdf:type owl:ObjectProperty .
+
+
+###  http://www.hkust.edu.hk/zhaojiwu/performance_based_generative_design#hasClimateZone
+pgd:hasClimateZone rdf:type owl:ObjectProperty .
+
+
+###  http://www.hkust.edu.hk/zhaojiwu/performance_based_generative_design#hasConstruction
+pgd:hasConstruction rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf owl:topObjectProperty .
+
+
+###  http://www.hkust.edu.hk/zhaojiwu/performance_based_generative_design#hasIndex
+pgd:hasIndex rdf:type owl:ObjectProperty .
+
+
+###  http://www.hkust.edu.hk/zhaojiwu/performance_based_generative_design#hasMaterial
+pgd:hasMaterial rdf:type owl:ObjectProperty .
+
+
+###  http://www.hkust.edu.hk/zhaojiwu/performance_based_generative_design#hasPower
+pgd:hasPower rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf owl:topObjectProperty .
+
+
+###  http://www.hkust.edu.hk/zhaojiwu/performance_based_generative_design#hasSchedule
+pgd:hasSchedule rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf owl:topObjectProperty .
+
+
+###  http://www.hkust.edu.hk/zhaojiwu/performance_based_generative_design#hasSpaceType
+pgd:hasSpaceType rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf owl:topObjectProperty .
+
+
+###  http://www.hkust.edu.hk/zhaojiwu/performance_based_generative_design#sameThermalZone
+pgd:sameThermalZone rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf owl:topObjectProperty ;
+                    rdf:type owl:SymmetricProperty ,
+                             owl:TransitiveProperty ,
+                             owl:IrreflexiveProperty .
+
+
+###  https://brickschema.org/schema/Brick#feeds
+brick:feeds rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf owl:topObjectProperty ;
+            owl:inverseOf brick:isFedBy ;
+            rdf:type owl:AsymmetricProperty ,
+                     owl:IrreflexiveProperty ;
+            ns4:definition "The subject is upstream of the object in the context of some sequential process; some media is passed between them"@en .
+
+
+###  https://brickschema.org/schema/Brick#hasLocation
+brick:hasLocation rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf owl:topObjectProperty ;
+                  owl:inverseOf brick:isLocationOf ;
+                  rdf:type owl:AsymmetricProperty ,
+                           owl:IrreflexiveProperty ;
+                  rdfs:range brick:Location ;
+                  ns4:definition "Subject is physically located in the location given by the object"@en .
+
+
+###  https://brickschema.org/schema/Brick#hasPoint
+brick:hasPoint rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf owl:topObjectProperty ;
+               owl:inverseOf brick:isPointOf ;
+               rdf:type owl:AsymmetricProperty ,
+                        owl:IrreflexiveProperty ;
+               rdfs:range brick:Point ;
+               ns4:definition "The subject has a source of telemetry identified by the object. In some systems the source of telemetry may be represented as a digital/analog input/output point"@en .
+
+
+###  https://brickschema.org/schema/Brick#hasTag
+brick:hasTag rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf owl:topObjectProperty .
+
+
+###  https://brickschema.org/schema/Brick#isFedBy
+brick:isFedBy rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf owl:topObjectProperty .
+
+
+###  https://brickschema.org/schema/Brick#isLocationOf
+brick:isLocationOf rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf owl:topObjectProperty .
+
+
+###  https://brickschema.org/schema/Brick#isPointOf
+brick:isPointOf rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf owl:topObjectProperty .
+
+
+###  https://w3id.org/bot#adjacentElement
+bot:adjacentElement rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf bot:hasElement ;
+                    owl:propertyDisjointWith bot:intersectingElement ;
+                    rdfs:comment "Beziehung zwischen einer Zone und dessen angrenzenden Bauteilen. Die Bauteile begrenzen die Zone."@de ,
+                                 "Bir bölge ile bitişik bina parçaları arasındaki ilişki, fiziksel alanı sınırlar."@tr ,
+                                 "Relació entre una zona i els seus elements arquitectònics adjacents, que limiten l'espai físic."@ca ,
+                                 "Relación entre una zona y sus elementos arquitectónicos adyacentes, que limitan el espacio físico."@es ,
+                                 "Relatie tussen een zone en zijn aangrenzende gebouwelementen. Het gebouwelement begrenst de zone."@nl ,
+                                 "Relation between a zone and its adjacent building elements, bounding the zone."@en ,
+                                 "Relation entre une zone et ses éléments adjacents, délimitant l'espace physique"@fr ,
+                                 "Relation mellan en zon och dess angränsande byggdelar, som avgränsar det fysiska utrymmet."@sv ,
+                                 "Relation mellem en zone og dens tilstødende bygningsdele, som afgrænser det fysiske rum."@da ,
+                                 "Relazione tra una zona e i suoi elementi di costruzione adiacenti che delimitano la zona stessa."@it ,
+                                 "Relação entre uma zona e os elementos da construção que lhe são adjacentes, delimitando a zona."@pt ,
+                                 "Suhde vyöhykkeen ja sen viereisten, sitä rajaavien rakennuselementtien välillä."@fi ,
+                                 "Vztah mezi zónou a její přilehlými stavebními prvky, obklopujícími danou zónu."@cs ,
+                                 "Vzťah medzi zónou a stavebnými prvkami obklopujúcimi túto zónu."@sk ,
+                                 "رابطه بین یک منطقه و المانهای ساختمانی همجوارش که حدود منطقه را مشخص می کنند. "@fa ,
+                                 "区域中相邻建筑构件之间的关系，以该区域为界。"@zh-cn ;
+                    rdfs:isDefinedBy bot: ;
+                    rdfs:label "Bitisik eleman"@tr ,
+                               "aangrenzend element"@nl ,
+                               "adjacent element"@en ,
+                               "angränsande element"@sv ,
+                               "benachbartes Bauteil"@de ,
+                               "element adjacent"@ca ,
+                               "elemento adiacente"@it ,
+                               "elemento adjacente"@pt ,
+                               "elemento adyacente"@es ,
+                               "priľahlý element-prvok"@sk ,
+                               "přilehlý element-prvek"@cs ,
+                               "tilstødende element"@da ,
+                               "viereinen elementti"@fi ,
+                               "élément adjacent"@fr ,
+                               "المان همجوار"@fa ,
+                               "相邻构件"@zh-cn ;
+                    ns1:term_status "stable" .
+
+
+###  https://w3id.org/bot#adjacentZone
+bot:adjacentZone rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf owl:topObjectProperty ;
+                 rdf:type owl:SymmetricProperty ;
+                 rdfs:domain bot:Zone ;
+                 rdfs:range bot:Zone ;
+                 owl:propertyDisjointWith bot:intersectsZone ;
+                 rdfs:comment "Beziehung zwischen zwei Zonen die eine gemeinsame Grenzfläche haben, aber sich nicht schneiden."@de ,
+                              "Ortak bir arayüzü paylaşan iki bölge arasındaki bağlantı."@tr ,
+                              "Relació entre dues zones que comparteixen una interfície comuna, però que no interseccionen"@ca ,
+                              "Relación entre dos zonas que comparten una interfaz común, pero que no intersecan."@es ,
+                              "Relatie tussen twee zones die een interface delen, maar niet doorsnijdend zijn"@nl ,
+                              "Relation entre deux zones partageant une interface commune, sans intersection"@fr ,
+                              "Relation mellan två zoner som delar ett gemensamt gränssnitt men som inte korsar varandra."@sv ,
+                              "Relation mellem to zoner, der deler en fælles grænseflade."@da ,
+                              "Relationship between two zones that share a common interface, but do not intersect."@en ,
+                              "Relazione tra due zone che condividono un'interfaccia senza però intersecarsi."@it ,
+                              "Relação entre duas zonas que partilham um interface comum mas que não se intersectam."@pt ,
+                              "Suhde kahden vyöhykkeen välillä, jotka jakavat yhteisen rajapinnan mutta eivät leikkaa toisiaan."@fi ,
+                              "Vztah mezi dvěmi zónami, které se dotýkají, ale neprotínají se."@cs ,
+                              "Vzťah medzi dvomi zónami, ktoré sa dotýkajú, ale nepretínajú sa."@sk ,
+                              "رابطه بین دو منطقه که یک رابط مشترک دارند، ولی منقطع نیستند."@fa ,
+                              "两个区域之间共享公共界面但不相交的关系"@zh-cn ;
+                 rdfs:isDefinedBy bot: ;
+                 rdfs:label "Bitisik bölge"@tr ,
+                            "aangrenzende zone"@nl ,
+                            "adjacent zone"@en ,
+                            "angrenzende Zone"@de ,
+                            "angränsande zon"@sv ,
+                            "priľahlá zóna"@sk ,
+                            "přilehlá zóna"@cs ,
+                            "tilstødende zone"@da ,
+                            "viereinen vyöhyke"@fi ,
+                            "zona adiacente"@it ,
+                            "zona adjacent"@ca ,
+                            "zona adjacente"@pt ,
+                            "zona adyacente"@es ,
+                            "zone adjacente"@fr ,
+                            "منطقه همجوار"@fa ,
+                            "相邻区域"@zh-cn ;
+                 ns1:term_status "stable" ;
+                 ns3:domainIncludes bot:Building ,
+                                    bot:Site ,
+                                    bot:Space ,
+                                    bot:Storey ;
+                 ns3:rangeIncludes bot:Building ,
+                                   bot:Site ,
+                                   bot:Space ,
+                                   bot:Storey .
+
+
+###  https://w3id.org/bot#containsElement
+bot:containsElement rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf bot:hasElement ;
+                    rdfs:comment "Beziehung einer Zone zu einem Bauteil, dass es enthält."@de ,
+                                 "Bir bölgede bulunan bir bina parçasıyla ilişki."@tr ,
+                                 "Relació a un element arquitectònic contingut en una zona."@ca ,
+                                 "Relación a un elemento arquitectónico contenido en una zona."@es ,
+                                 "Relatie tussen zone en een gebouwelement bevat in die zone."@nl ,
+                                 "Relation til en bygningsdel, som er indeholdt i en zone."@da ,
+                                 "Relation till en byggdel som inryms i en zon."@sv ,
+                                 "Relation to a building element contained in a zone."@en ,
+                                 "Relation à définir entre un élément de bâti et la zone le contenant"@fr ,
+                                 "Relazione con elementi di costruzione contenuti in una zona."@it ,
+                                 "Relação com um elemento da construção contido numa zona."@pt ,
+                                 "Suhde vyöhykkeen sisältämään rakennuselementtiin."@fi ,
+                                 "Vztah k stavebnímu prvku obsaženém v zóně."@cs ,
+                                 "Vzťah k stavebnému prvku, obsiahnutom v zóne."@sk ,
+                                 "رابطه بین یک منطقه با المان ساختمانی که آنرا در بر گرفته است."@fa ,
+                                 "区域中包含的建筑构件的关系。"@zh-cn ;
+                    rdfs:isDefinedBy bot: ;
+                    rdfs:label "Eleman icerir"@tr ,
+                               "bevat element"@nl ,
+                               "comtém elemento"@pt ,
+                               "contains element"@en ,
+                               "contiene elemento"@es ,
+                               "contiene elemento"@it ,
+                               "contient élément"@fr ,
+                               "conté un element"@ca ,
+                               "enthält Bauteil"@de ,
+                               "indeholder bygningsdel"@da ,
+                               "innehåller byggdel"@sv ,
+                               "obsahuje element-prvek"@cs ,
+                               "obsahuje element-prvok"@sk ,
+                               "sisältää elementin"@fi ,
+                               "المان دربرگیرنده"@fa ,
+                               "包含构件"@zh-cn ;
+                    ns1:term_status "stable" .
+
+
+###  https://w3id.org/bot#containsZone
+bot:containsZone rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf owl:topObjectProperty .
+
+
+###  https://w3id.org/bot#hasBuilding
+bot:hasBuilding rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf bot:containsZone ;
+                rdfs:domain bot:Zone ;
+                rdfs:range bot:Building ;
+                rdfs:comment "Beziehung zwischen Gebäuden, die in einer Zone enthalten sind. Oft ist hier die rdfs:domain eine Instanz von bot:Site."@de ,
+                             "Bir bölgeye dahil binalara ile ilişkisi. Bot:hasBuilding için tipik etki alanları bot:Site örnekleridir."@tr ,
+                             "Relació amb els edificis continguts en una zona. Els dominis típics de bot:hasBuilding són instàncies de bot:Site"@ca ,
+                             "Relación con los edificios contenidos en una zona. Los dominios típicos de bot:hasBuilding son instancias de bot:Site."@es ,
+                             "Relatie tot gebouwen die zich in een zone bevinden. De typische domeinen van bot:hasBuilding zijn instanties van bot:Site"@nl ,
+                             "Relation til bygninger indeholdt i en zone. De typiske domæner for bot:hasBuilding er forekomster af bot:Site."@da ,
+                             "Relation till byggnader som inryms i en zon. Typiska domäner för bot:hasBuilding är förekomster av bot:Site."@sv ,
+                             "Relation to buildings contained in a zone. The typical domains of bot:hasBuilding are instances of bot:Site."@en ,
+                             "Relation à définir entre les bâtiments d'une même zone. Cette propriété s'applique typiquement sur des instances de bot:Site."@fr ,
+                             "Relazione con gli edifici contenuti in una zona. Il tipico dominio di bot:hasBuilding è bot:Site."@it ,
+                             "Relação com edifícios contidos numa zona. Os domínios típicos de bot:hasBuilding são instâncias de bot:Site."@pt ,
+                             "Suhde vyöhykkeeseen kuuluviin rakennuksiin. Tyypillinen lähtöjoukko on luokan bot:Site instanssit."@fi ,
+                             "Vztah budov které jsou přilehlé k zóně. Typickým příkladem je bot:hasBuilding která je instancí bot:Site tzn. staveniště (stav. pozemeek) má budovu, budova stojí na pozemku."@cs ,
+                             "Vzťah budovy a pozemku, na ktorom stojí. Typická doména bot:hasBuilding je inštanciou bot:Site. Tzn. stavenisko(stavebný pozemok) má budovu."@sk ,
+                             "ارتباط  با ساختمانهابی که دربرگرفته شده‌اند. دامنه اصلی bot:hasBuilding عنصرهایی از جنس bot:Site هستند."@fa ,
+                             "区域中含有建筑的关系。 bot：hasBuilding的典型使用范围是bot：Site中的实例。"@zh-cn ;
+                rdfs:isDefinedBy bot: ;
+                rdfs:label "Binası var"@tr ,
+                           "contient bâtiment"@fr ,
+                           "ha edificio"@it ,
+                           "har byggnad"@sv ,
+                           "har bygning"@da ,
+                           "has building"@en ,
+                           "hat Gebäude"@de ,
+                           "heeft gebouw"@nl ,
+                           "má budovu"@cs ,
+                           "má budovu"@sk ,
+                           "omaa rakennuksen"@fi ,
+                           "tem edifício"@pt ,
+                           "tiene edificio"@es ,
+                           "té edifici"@ca ,
+                           "ساختمان دارد"@fa ,
+                           "包含建筑"@zh-cn ;
+                ns1:term_status "stable" ;
+                ns3:domainIncludes bot:Site .
+
+
+###  https://w3id.org/bot#hasElement
+bot:hasElement rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf owl:topObjectProperty ;
+               rdfs:domain bot:Zone ;
+               rdfs:range bot:Element ;
+               rdfs:comment "Beziehung zwischen einer Zone und einem Bauteil, dass entweder in der Zone enthalten ist, angrenzend ist, oder sich mit ihr schneidet. Diese Beziehung sollte nicht explizit benutzt werden, sondern ergibt sich implizit aus den Unterbeziehungen. Es ermöglicht, zum Beispiel, dass mit einer Abfrage alle Türen eines Gebäudes, die sich mit einer Zone schneiden ermittelt werden können."@de ,
+                            "Bir Bölgeyi, Bölgenin içinde veya yanında bulunan bir bina parçasına bağlar. Bu ilişkinin açık bir şekilde ifade edilmesi değil, alt özellikleri türetilmesi amaçlanmaktadır. Örneğin, bunların binadaki odalara bitişik ya da bitişik olduğu göz önüne alındığında, bir binadaki tüm kapılar için bir sorgu'ya izin verecektir."@tr ,
+                            "Collega una zona ad un elemento che è contenuto, adiacente o intersecante la zona stessa. Non si prevede l'uso esplicito di questa relazione che deve essere inferita dalle sue sotto-proprietà. Per esempio, permette di cercare tutte le porte di un edificio dato che sono adiacenti agli spazi di un edificio."@it ,
+                            "Forbinder en Zone til en bygningsdel der enten er indeholdt i eller tilstødende til zonen. Det er ikke hensigten at denne relation angives eksplicit, men at den udledes af dennes underegneskaber. Det vil for eksempel tillade en forespørgsel på alle døre i en bygning givet at disse er enten tilstødende eller indeholdt i rum i bygningen."@da ,
+                            "Liittää vyöhykkeen (bot:Zone) elementtiin (bot:Element) joka on joko vyöhykkeen sisällä tai vierellä, tai leikkaa sen. Tätä suhdetta ei ole tarkoitus käyttää eksplisiittisesti, vaan se on pääteltävissä sen alaominaisuuksista. Mahdollistaa esimerkiksi kaikkien rakennuksen ovien hakemisen, kunhan ovet on merkitty rakennuksen tilojen viereisiksi elementeiksi (bot:adjacentElement)."@fi ,
+                            "Links a Zone to an Element that is either contained in, adjacent to or intersecting with the Zone. The intended use of this relationship is not to be stated explicitly, but to be inferred from its sub-properties. It will, for example, allow one to query for all the doors of a building given that they have an adjacency to spaces of the building."@en ,
+                            "Länkar en Zon till en Byggnadsdel som antingen inryms i eller ligger jämte zonen. Den här relationen är inte avseddd att uttryckas explicit, utan den kommer att härledas från under-relationer. Detta möjliggör till exempel att man kan fråga efter samtliga dörrar i en byggnad givet att de ligger i anslutning till utrymmen i byggnaden."@sv ,
+                            "Napojuje zónu na stavební prvek, který se buďto nachází v dané zóně, nebo je na její rozhraní. Využitelnost tohoto vztahu není daná explicitně, ale je vyvozená z vlastností zúčastněných prvků. Například to umožní vyhledat všechny dveře, které se dotýkají konkrétních zón."@cs ,
+                            "Napojuje zónu na stavebný prvok, ktorý sa buď nachádza v danej zóne alebo je na jej rozhraní. Využitie tohto vzťahu nie je definované explicitne, ale je vyvodené z vlastností zúčastnených prvkov. Napríklad to umožní vyhľadať všetky dvere v budove, ktoré sa dotýkajú nejakých zón."@sk ,
+                            "Relaciona uma zona com um elemento que está contido em, é adjacente ou intersecta a zona. Não se pretende que esta relação seja declarada explicitamente mas que seja inferida através das suas sub-propriedades. Esta propriedade permitirá, por exemplo, que se faça um query a todas as portas de um edifício que sejam adjacentes a espaços do edifício."@pt ,
+                            "Relie une zone à un élément qui est soit contenu dans la zone, adjacent à celle-ci, ou intersectant. L'utilisation prévue de cette relation ne doit pas être indiquée explicitement, mais doit être déduite de ses sous-propriétés. Elle permettra, par exemple, d'interroger toutes les portes d'un bâtiment si elles sont adjacentes à certains des espaces du bâtiment."@fr ,
+                            "Verbindt een bot:Zone instantie met een bot:Element instantie die er ofwel door bevat wordt, aangrenzend aan is of snijdend mee is. Het is aangeraden om deze relatie niet expliciet te maken, maar af te leiden uit het gebruik van zijn sub relaties. Deze relatie maakt het bijvoorbeeld mogelijk om alle deuren van een gebouw op te vragen als die aangrenzend gedefinieerd zijn aan de ruimtes van het gebouw."@nl ,
+                            "Vincula una zona a un element que està contingut en, o és adjacent a, o interseca amb la zona. L'ús previst d'aquesta relació no s'ha d'establir explícitament, sinó inferir-se de les seves subpropietats. Permetrà, per exemple, consultar totes les portes d'un edifici donat que tenen una adjacència als espais de l'edifici."@ca ,
+                            "Vincula una zona a un elemento que está contenido en, o es adyacente a, o interseca con la zona. El uso previsto de esta relación no es su definición explícita, sino inferirse de sus subpropiedades. Permitirá, por ejemplo, consultar todas las puertas de un edificio dado que tienen una adyacencia a los espacios del edificio."@es ,
+                            "رابطه یک منطقه با المانی که یا توسط منطقه در برگرفته شده و یا همجوار است. کاربرد این رابطه نه لزوماً به صورت مستقیم که بلکه برای نتیجه‌گیری حاصل از زیر-روابط ابراز شده است.این رابطه، به عنوان مثال، امکان استعلام (query) از همه درهای یک ساختمان که در مجاورت فضای خاصی هستند را فراهم می کند."@fa ,
+                            "将区域链接到包含在区域中或附近的构件。 该关系的预期用途不是明确说明的，而是要从其子属性中推断出来。例如，如果构件与建筑物的空间相邻，可以借此查询建筑物的所有门。"@zh-cn ;
+               rdfs:isDefinedBy bot: ;
+               rdfs:label "Elemanı var"@tr ,
+                          "a élément"@fr ,
+                          "alberga elemento"@es ,
+                          "ha elemento"@it ,
+                          "har element"@da ,
+                          "has element"@en ,
+                          "hat Bauteil"@de ,
+                          "heeft element"@nl ,
+                          "má element"@cs ,
+                          "má element"@sk ,
+                          "omaa elementin"@fi ,
+                          "tem elemento"@pt ,
+                          "té element"@ca ,
+                          "värd för element"@sv ,
+                          "المان دارد"@fa ,
+                          "含构件"@zh-cn ;
+               ns1:term_status "stable" .
+
+
+###  https://w3id.org/bot#hasSpace
+bot:hasSpace rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf bot:containsZone ;
+             rdfs:domain bot:Zone ;
+             rdfs:range bot:Space ;
+             rdfs:comment "Beziehung von Räumen, die sich in einer Zone befinden. Oft ist die rdfs:domain eine Instanz von bot:Storey oder bot:Building."@de ,
+                          "Bir bölgede bulunan odalarla ilişkisi. Bot:hasSpace için tipik etki alanları bot:Building ve bot:Storey örnekleridir."@tr ,
+                          "Relació a espais continguts en una zona. Els dominis típics de bot:hasSpace són instàncies de bot:Storey o bot:Building."@ca ,
+                          "Relación a espacios contenidos en una zona. Los dominios típicos de bot:hasSpace son instancias de bot:Storey o bot:Building."@es ,
+                          "Relatie tot ruimtes die zich in een zone bevinden. De typische domeinen van bot:hasSpace zijn instanties van bot:Storey of bot:Building."@nl ,
+                          "Relation til rum indeholdt i en zone. De typiske domæner for bot:hasSpace er forekomster af bot:Storey og bot:Building."@da ,
+                          "Relation till rum som inryms i en zon. Typiska domäner för bot:hasSpace är förekomster av bot:Storey och bot:Building."@sv ,
+                          "Relation to spaces contained in a zone. The typical domains of bot:hasSpace are instances of bot:Storey or bot:Building."@en ,
+                          "Relation à définir entre les pièces d'une même zone. Cette propriété s'applique typiquement sur des instances de bot:Storey et bot:Building."@fr ,
+                          "Relazione con gli spazi contenuti in una zona. Il tipico dominio di bot:hasSpace è l'unione di bot:Storey e bot:Building."@it ,
+                          "Relação com espaços contidos numa zona. Os domínios típicos de bot:hasSpace são instâncias de bot:Storey ou de bot:Building."@pt ,
+                          "Suhde vyöhykkeeseen kuuluviin tiloihin. Tyypillinen lähtöjoukko ovat luokkien bot:Storey tai bot:Building instanssit."@fi ,
+                          "Vztah prostorů nacházejících se v zóně a dané zóny. Typická doména bot:hasSpace jsou instance bot:Storey a bot:Building."@cs ,
+                          "Vzťah priestorov nachádzajúcich sa v zóne a danej zóny. Typická doména bot:hasSpace sú inštancie bot:Storey a bot:Buuilding."@sk ,
+                          "ارتباط با فضاهایی که دربرگرفته شده‌اند. دامنه‌ی اصلی  bot:hasSpace عنصرهایی از جنس bot:Building  وbot:Storey هستند."@fa ,
+                          "区域含有空间的关系。 bot：hasSpace的典型使用范围是bot：Storey和bot：Building中的实例。"@zh-cn ;
+             rdfs:isDefinedBy bot: ;
+             rdfs:label "Odası var"@tr ,
+                        "contient pièce"@fr ,
+                        "ha spazio"@it ,
+                        "har rum"@da ,
+                        "har rum"@sv ,
+                        "has space"@en ,
+                        "hat Raum"@de ,
+                        "heeft ruimte"@nl ,
+                        "má priestor"@sk ,
+                        "má prostor"@cs ,
+                        "omaa tilan"@fi ,
+                        "tem espaço"@pt ,
+                        "tiene espacio"@es ,
+                        "té espai"@ca ,
+                        "فضا دارد"@fa ,
+                        "包含空间"@zh-cn ;
+             ns1:term_status "stable" ;
+             ns3:domainIncludes bot:Storey .
+
+
+###  https://w3id.org/bot#hasStorey
+bot:hasStorey rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf bot:containsZone ;
+              rdfs:domain bot:Zone ;
+              rdfs:range bot:Storey ;
+              rdfs:comment "Beziehung zwischen Geschossen, die in einer Zone enthalten sind. Oft ist die rdfs:domain eine Instanz von bot:Building."@de ,
+                           "Bir bölgede bulunan katlarla ilişkisi. Bot:hasStorey için tipik etki alanları bot:Building örnekleridir."@tr ,
+                           "Relació amb els pisos continguts en una zona. Els dominis típics de bot: hasStorey son instàncies de bot:Building."@ca ,
+                           "Relación con los pisos contenidos en una zona. Los dominios típicos de bot:hasStorey son instancias de bot:Building."@es ,
+                           "Relatie tot de verdiepingen die zich in een zone bevinden. De typische domeinen van bot:hasStorey zijn instanties van bot:Building."@nl ,
+                           "Relation som uttrycker vilka våningar som finns i en Zon. Används typiskt med instanser av bot:Building."@sv ,
+                           "Relation til etager indeholdt i en zone. De typiske domæner for bot:hasStorey er forekomster af bot:Building."@da ,
+                           "Relation to storeys contained in a zone. The typical domains of bot:hasStorey are instances of bot:Building."@en ,
+                           "Relation à définir entre les étages d'une même zone. Cette propriété s'applique typiquement sur des instances de bot:Building."@fr ,
+                           "Relazione con i piani contenuti in una zona. Il tipico dominio di bot:hasStorey è bot:Building."@it ,
+                           "Relação com os pisos contidos numa zona. Os domínios típicos de bot:hasStorey são instâncias de bot:Building."@pt ,
+                           "Suhde vyöhykkeeseen kuuluviin kerroksiin. Tyypillinen lähtöjoukko on luokan bot:Building instanssit."@fi ,
+                           "Vztah zóny-podlaží a zóny, ve které se nachází. Typická doména bot:hasStorey jsou instance bot:Building."@cs ,
+                           "Vzťah zóny-podlažia a zóny, v ktorej sa nachádza. Typická doména bot:hasStorey sú inštancie bot:Building."@sk ,
+                           "ارتباط با طبقه‌هایی که دربرگرفته شده‌اند. دامنه‌ی اصلی bot:hasStorey عنصرهایی از جنس bot:Building هستند."@fa ,
+                           "区域中含有楼层的关系。 bot：hasStorey的典型使用范围是bot：Building中的实例。"@zh-cn ;
+              rdfs:isDefinedBy bot: ;
+              rdfs:label "Katı var"@tr ,
+                         "a étage"@fr ,
+                         "ha piano"@it ,
+                         "har etage"@da ,
+                         "har våning"@sv ,
+                         "has storey"@en ,
+                         "hat Geschoss"@de ,
+                         "heeft verdieping"@nl ,
+                         "má podlažie"@sk ,
+                         "má podlaží"@cs ,
+                         "omaa kerroksen"@fi ,
+                         "tem piso"@pt ,
+                         "tiene piso"@es ,
+                         "té pis"@ca ,
+                         "طبقه دارد"@fa ,
+                         "包含楼层"@zh-cn ;
+              ns1:term_status "stable" ;
+              ns3:domainIncludes bot:Building .
+
+
+###  https://w3id.org/bot#hasSubElement
+bot:hasSubElement rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf owl:topObjectProperty ;
+                  rdfs:domain bot:Element ;
+                  rdfs:range bot:Element ;
+                  rdfs:comment "Beziehung zwischen zwei Bauteilen, wobei entweder eines das andere enthält (z.B. eine Wand enthält ein Fenster) oder ein ganzes, das aus anderen Teilen zusammen gesetzt ist (z.B. eine Lüftungsanlage hat eine Komponente Lüfter)."@de ,
+                               "Bir a) bina parçası ve b) bina parçası arasındaki bağlantının a) tarafından barındırmasıdır. Örneğin: inst:wall bot:hasSubElement inst:window."@tr ,
+                               "Relació entre dos elements de construcció, ja sigui un element que allotja un altre (per exemple, una mur que conté una finestra) o una subcomposició d'un element de construcció en parts més petites (per exemple, una unitat de ventilació té una part que és un ventilador)."@ca ,
+                               "Relación entre dos elementos de construcción, ya sea un elemento que aloja a otro (por ejemplo, una ventana alojada en una pared) o una subcomposición de un elemento de construcción en partes más pequeñas (por ejemplo, una unidad de ventilación tiene una parte que es un ventilador)."@es ,
+                               "Relatie tussen twee gebouwelementen, ofwel één element dat een andere element bevat (bv. een muur die een raam bevat) of een subcompositie van een gebouwelement in kleinere delen (bv. een luchtbehandelingskast die een ventilator bevat)."@nl ,
+                               "Relation between two building elements, either one element hosting another (e.g. a wall hosts a window) or a subcomposition of a building element into smaller parts (e.g. an air handling unit has as a part a fan)."@en ,
+                               "Relation entre deux éléments du bâti, soit un élément hébergeant un autre (ex., un mur héberge une fenêtre), ou une décomposition d'un élément en sous-parties (ex., un système de gestion de l'air et un ventilateur qu'il contient)"@fr ,
+                               "Relation mellan två byggdelar där antingen endera är monterad i den andra (t.ex. ett fönster som är monterat i en vägg) eller endera är del av den andra (t.ex. en fläkt som är del av ett ventilationsaggregat)."@sv ,
+                               "Relation mellem to bygningsdele, enten en bygningsdel, der er \"hostet\" af en anden (fx et vindue, der \"hostet\" af en væg) eller en underkomposition af en bygningsdel i mindre dele (fx en ventilator som en del af et ventilationsaggregat)."@da ,
+                               "Relazione tra due elementi di costruzione che può realizzarsi perché un elemento ne ospita un altro (es. un muro ospita una finestra) o la scomposizione di un elemento in parti più piccole (es. un'unità di trattamento aria ha un ventilatore come sua parte)."@it ,
+                               "Relação entre dois elementos arquitectónicos, quer seja um elemento contendo outro (p.e. uma parede aloja uma janela) ou a subcomposição de um elemento arquitectónico por partes menores (p.e. uma unidade de ventilação contém uma parte que é um ventilador)."@pt ,
+                               "Suhde kahden elementin välillä, joko yhdestä elementistä siihen asennettuun toiseen elementtiin (esimerkiksi seinään asennettu ikkuna) tai elementin osittelu pienempiin osiin (esimerkiksi ilmankäsittelykonella on osana puhallin)."@fi ,
+                               "Vztah mezi prvkem a) a dalším prvkem b), který je součástí prvku a)"@cs ,
+                               "Vzťah medzi prvkom a) a ďalším prvkom b), ktorý je súčasťou prvku a)"@sk ,
+                               "ارتباط بین دو المان ساختمان؛ یا رابطه یک المان میزبان با المان دیگر (برای مثال یک پنجره میزبانی میشود توسط یک دیوار)؛ یا رابطه یک المان با زیرمجموعه‌ای از المانهای کوچکتر ساختمان (برای مثال یک فن به عنوان بخشی از واحد کنترل هوا)."@fa ,
+                               "两个建筑构件之间的关系，要么是一个元素承载另一个元素（例如，一扇窗户由墙壁承载），要么是将建筑构件细分为较小的部分（例如，作为空气处理单元一部分的风扇）。"@zh-cn ;
+                  rdfs:isDefinedBy bot: ;
+                  rdfs:label "a sous-élément"@fr ,
+                             "alberga sub elemento"@es ,
+                             "alt öğesi var"@tr ,
+                             "ha sotto-elemento"@it ,
+                             "har underbygningsdel"@da ,
+                             "has sub-element"@en ,
+                             "hat Unterbauteil"@de ,
+                             "heeft subelement"@nl ,
+                             "má součást"@cs ,
+                             "má súčasť"@sk ,
+                             "omaa osaelementin"@fi ,
+                             "tem sub elemento"@pt ,
+                             "té un subelement"@ca ,
+                             "värd för sub element"@sv ,
+                             "زیرالمان دارد"@fa ,
+                             "包含子构件"@zh-cn ;
+                  ns1:term_status "stable" .
+
+
+###  https://w3id.org/bot#interfaceOf
+bot:interfaceOf rdf:type owl:ObjectProperty ;
+                rdfs:comment "Beziehung zwischen einer Schnittstelle und einem anderen Ding (Gebäude zone, Bauteil oder owl:Thing)."@de ,
+                             "Bir arabirim ile bitişik bir bölge veya bina parçası arasındaki ilişki."@tr ,
+                             "Relació entre una interfície i una altra cosa (zona de construcció, element o owl:Thing)"@ca ,
+                             "Relación entre una interfaz y otra cosa (zona de construcción, elemento o owl:Thing)"@es ,
+                             "Relatie tussen een interface en een ander ding (gebouwzone, gebouwelement of owl:Thing)."@nl ,
+                             "Relation mellan ett gränssnitt och något angränsande (en zon, en byggdel, eller owl:Thing)."@sv ,
+                             "Relation mellem en grænseflade og en anden ting (bygningszone, bygningsdel eller owl:Thing)."@da ,
+                             "Relation à définir entre une interface et une zone ou un élément adjacents."@fr ,
+                             "Relationship between an interface and another thing (building zone, element or owl:Thing)"@en ,
+                             "Relazione tra un'interfaccia e un'altra cosa (zona di edificio, elemento di costruzione o owl:Thing)"@it ,
+                             "Relação entre um interface e outra coisa (zona do edifício, elemento ou owl:Thing)"@pt ,
+                             "Suhde rajapinnan ja toisen asian välillä (rakennuksen vyöhyke, elementti, tai owl:Thing)."@fi ,
+                             "Vztah mezi rozhraním a přilehlou zónou nebo prvkem."@cs ,
+                             "Vzťah medzi rozhraním a priľahlou zónou alebo prvkom."@sk ,
+                             "رابطه بین یک رابط و یک عنصر دیگر (منطقه ساختمان، المان، و یا owl:Thing)"@fa ,
+                             "界面与其他对象（建筑热区，构件或owl:Thing）之间的关系。"@zh-cn ;
+                rdfs:isDefinedBy bot: ;
+                rdfs:label "Arayüzü"@tr ,
+                           "Schnittstelle von"@de ,
+                           "gränssnitt för"@sv ,
+                           "grænseflade for"@da ,
+                           "interfaccia di"@it ,
+                           "interface de"@fr ,
+                           "interface de"@pt ,
+                           "interface of"@en ,
+                           "interface van"@nl ,
+                           "interfaz de"@es ,
+                           "interfície de"@ca ,
+                           "je rozhranie/rozhraním"@sk ,
+                           "je rozhraní/je rozhraním"@cs ,
+                           "rajapintana"@fi ,
+                           "رابط است"@fa ,
+                           "交界面于"@zh-cn ;
+                ns1:term_status "stable" .
+
+
+###  https://w3id.org/bot#intersectingElement
+bot:intersectingElement rdf:type owl:ObjectProperty ;
+                        rdfs:subPropertyOf bot:hasElement ;
+                        rdfs:comment "Beziehung zwischen einer Zone und einem Bauteil, das die Zone schneidet."@de ,
+                                     "Bir Bölge ve onunla kesişen bir yapı Elemanı arasındaki ilişki."@tr ,
+                                     "Forholdet mellem en zone og et bygningselement, der krydser det."@da ,
+                                     "Relació entre una zona i un element constructiu que la intersecta."@ca ,
+                                     "Relación entre una zona y un elemento constructivo que la interseca."@es ,
+                                     "Relatie tussen een zone en een gebouwelement die de zone doorsnijdt."@nl ,
+                                     "Relation between a Zone and a building Element that intersects it."@en ,
+                                     "Relation entre une zone et un élément du bâtiment qui la traverse."@fr ,
+                                     "Relationen mellan en zon och en byggdel som korsar zonen."@sv ,
+                                     "Relazione tra una zona e un elemento di costruzione che la interseca."@it ,
+                                     "Relação entre uma Zona e um Elemento construtivo que a intersecta."@pt ,
+                                     "Suhde vyöhykkeen ja sitä leikkaavan rakennuselementin välillä."@fi ,
+                                     "Vztah mezi zónou a stavebním prvkem, který ji protíná."@cs ,
+                                     "Vzťah medzi zónou a stavebným prvkom, ktorý ju pretína."@sk ,
+                                     "رابطه بین یک منطقه با المان ساختمانی که با آن در تلاقی است."@fa ,
+                                     "区域中相交建筑构件之间的关系。"@zh-cn ;
+                        rdfs:isDefinedBy bot: ;
+                        rdfs:label "Eleman ile temas"@tr ,
+                                   "doorsnijdend element"@nl ,
+                                   "element d'intersecció"@ca ,
+                                   "elemento de intersección"@es ,
+                                   "elemento intersecante"@it ,
+                                   "elemento intersectante"@pt ,
+                                   "intersecting element"@en ,
+                                   "korsande byggdel"@sv ,
+                                   "krydsende Bygningsdel"@da ,
+                                   "leikkaava elementti"@fi ,
+                                   "pretína element-prvok"@sk ,
+                                   "protíná element-prvek"@cs ,
+                                   "schneidendes Bauteil"@de ,
+                                   "élément intersectant"@fr ,
+                                   "المان متلاقی"@fa ,
+                                   "相交构件"@zh-cn ;
+                        ns1:term_status "stable" .
+
+
+###  https://w3id.org/bot#intersectsZone
+bot:intersectsZone rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf owl:topObjectProperty .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.hkust.edu.hk/zhaojiwu/performance_based_generative_design#actualValue
+pgd:actualValue rdf:type owl:DatatypeProperty .
+
+
+###  http://www.hkust.edu.hk/zhaojiwu/performance_based_generative_design#fileStoreAt
+pgd:fileStoreAt rdf:type owl:DatatypeProperty .
+
+
+###  http://www.hkust.edu.hk/zhaojiwu/performance_based_generative_design#hasArea_m2
+pgd:hasArea_m2 rdf:type owl:DatatypeProperty .
+
+
+###  http://www.hkust.edu.hk/zhaojiwu/performance_based_generative_design#hasCeilingHeight_m
+pgd:hasCeilingHeight_m rdf:type owl:DatatypeProperty ;
+                       rdfs:subPropertyOf owl:topDataProperty .
+
+
+###  http://www.hkust.edu.hk/zhaojiwu/performance_based_generative_design#hasConductivity_W_m_K
+pgd:hasConductivity_W_m_K rdf:type owl:DatatypeProperty ;
+                          rdfs:subPropertyOf owl:topDataProperty .
+
+
+###  http://www.hkust.edu.hk/zhaojiwu/performance_based_generative_design#hasDensity_kg_m3
+pgd:hasDensity_kg_m3 rdf:type owl:DatatypeProperty ;
+                     rdfs:subPropertyOf owl:topDataProperty .
+
+
+###  http://www.hkust.edu.hk/zhaojiwu/performance_based_generative_design#hasExternalWall
+pgd:hasExternalWall rdf:type owl:DatatypeProperty ;
+                    rdfs:subPropertyOf owl:topDataProperty .
+
+
+###  http://www.hkust.edu.hk/zhaojiwu/performance_based_generative_design#hasFloorArea_m2
+pgd:hasFloorArea_m2 rdf:type owl:DatatypeProperty ;
+                    rdfs:subPropertyOf owl:topDataProperty .
+
+
+###  http://www.hkust.edu.hk/zhaojiwu/performance_based_generative_design#hasNormalVectorX_m
+pgd:hasNormalVectorX_m rdf:type owl:DatatypeProperty .
+
+
+###  http://www.hkust.edu.hk/zhaojiwu/performance_based_generative_design#hasNormalVectorY_m
+pgd:hasNormalVectorY_m rdf:type owl:DatatypeProperty .
+
+
+###  http://www.hkust.edu.hk/zhaojiwu/performance_based_generative_design#hasNormalVectorZ_m
+pgd:hasNormalVectorZ_m rdf:type owl:DatatypeProperty .
+
+
+###  http://www.hkust.edu.hk/zhaojiwu/performance_based_generative_design#hasNorthDirection_deg
+pgd:hasNorthDirection_deg rdf:type owl:DatatypeProperty ;
+                          rdfs:subPropertyOf owl:topDataProperty .
+
+
+###  http://www.hkust.edu.hk/zhaojiwu/performance_based_generative_design#hasOrigin_m
+pgd:hasOrigin_m rdf:type owl:DatatypeProperty ;
+                rdfs:subPropertyOf owl:topDataProperty .
+
+
+###  http://www.hkust.edu.hk/zhaojiwu/performance_based_generative_design#hasOutsideBoundaryCondition
+pgd:hasOutsideBoundaryCondition rdf:type owl:DatatypeProperty ;
+                                rdfs:subPropertyOf owl:topDataProperty .
+
+
+###  http://www.hkust.edu.hk/zhaojiwu/performance_based_generative_design#hasRValue_m2_K_W
+pgd:hasRValue_m2_K_W rdf:type owl:DatatypeProperty .
+
+
+###  http://www.hkust.edu.hk/zhaojiwu/performance_based_generative_design#hasRoughness
+pgd:hasRoughness rdf:type owl:DatatypeProperty ;
+                 rdfs:subPropertyOf owl:topDataProperty .
+
+
+###  http://www.hkust.edu.hk/zhaojiwu/performance_based_generative_design#hasSHGC
+pgd:hasSHGC rdf:type owl:DatatypeProperty ;
+            rdfs:subPropertyOf owl:topDataProperty .
+
+
+###  http://www.hkust.edu.hk/zhaojiwu/performance_based_generative_design#hasSolarAbsorptance
+pgd:hasSolarAbsorptance rdf:type owl:DatatypeProperty ;
+                        rdfs:subPropertyOf owl:topDataProperty .
+
+
+###  http://www.hkust.edu.hk/zhaojiwu/performance_based_generative_design#hasSource
+pgd:hasSource rdf:type owl:DatatypeProperty .
+
+
+###  http://www.hkust.edu.hk/zhaojiwu/performance_based_generative_design#hasSpecificHeat_J_kg_K
+pgd:hasSpecificHeat_J_kg_K rdf:type owl:DatatypeProperty ;
+                           rdfs:subPropertyOf owl:topDataProperty .
+
+
+###  http://www.hkust.edu.hk/zhaojiwu/performance_based_generative_design#hasSurfaceType
+pgd:hasSurfaceType rdf:type owl:DatatypeProperty ;
+                   rdfs:subPropertyOf owl:topDataProperty .
+
+
+###  http://www.hkust.edu.hk/zhaojiwu/performance_based_generative_design#hasThermalAbsorptance
+pgd:hasThermalAbsorptance rdf:type owl:DatatypeProperty ;
+                          rdfs:subPropertyOf owl:topDataProperty .
+
+
+###  http://www.hkust.edu.hk/zhaojiwu/performance_based_generative_design#hasThickness_m
+pgd:hasThickness_m rdf:type owl:DatatypeProperty ;
+                   rdfs:subPropertyOf owl:topDataProperty .
+
+
+###  http://www.hkust.edu.hk/zhaojiwu/performance_based_generative_design#hasUfactor_W_m2_K
+pgd:hasUfactor_W_m2_K rdf:type owl:DatatypeProperty ;
+                      rdfs:subPropertyOf owl:topDataProperty .
+
+
+###  http://www.hkust.edu.hk/zhaojiwu/performance_based_generative_design#hasVertex1X_m
+pgd:hasVertex1X_m rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf owl:topDataProperty .
+
+
+###  http://www.hkust.edu.hk/zhaojiwu/performance_based_generative_design#hasVertex1Y_m
+pgd:hasVertex1Y_m rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf owl:topDataProperty .
+
+
+###  http://www.hkust.edu.hk/zhaojiwu/performance_based_generative_design#hasVertex1Z_m
+pgd:hasVertex1Z_m rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf owl:topDataProperty .
+
+
+###  http://www.hkust.edu.hk/zhaojiwu/performance_based_generative_design#hasVertex2X_m
+pgd:hasVertex2X_m rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf owl:topDataProperty .
+
+
+###  http://www.hkust.edu.hk/zhaojiwu/performance_based_generative_design#hasVertex2Y_m
+pgd:hasVertex2Y_m rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf owl:topDataProperty .
+
+
+###  http://www.hkust.edu.hk/zhaojiwu/performance_based_generative_design#hasVertex2Z_m
+pgd:hasVertex2Z_m rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf owl:topDataProperty .
+
+
+###  http://www.hkust.edu.hk/zhaojiwu/performance_based_generative_design#hasVertex3X_m
+pgd:hasVertex3X_m rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf owl:topDataProperty .
+
+
+###  http://www.hkust.edu.hk/zhaojiwu/performance_based_generative_design#hasVertex3Y_m
+pgd:hasVertex3Y_m rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf owl:topDataProperty .
+
+
+###  http://www.hkust.edu.hk/zhaojiwu/performance_based_generative_design#hasVertex3Z_m
+pgd:hasVertex3Z_m rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf owl:topDataProperty .
+
+
+###  http://www.hkust.edu.hk/zhaojiwu/performance_based_generative_design#hasVertex4X_m
+pgd:hasVertex4X_m rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf owl:topDataProperty .
+
+
+###  http://www.hkust.edu.hk/zhaojiwu/performance_based_generative_design#hasVertex4Y_m
+pgd:hasVertex4Y_m rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf owl:topDataProperty .
+
+
+###  http://www.hkust.edu.hk/zhaojiwu/performance_based_generative_design#hasVertex4Z_m
+pgd:hasVertex4Z_m rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf owl:topDataProperty .
+
+
+###  http://www.hkust.edu.hk/zhaojiwu/performance_based_generative_design#hasVisibleAbsorptance
+pgd:hasVisibleAbsorptance rdf:type owl:DatatypeProperty ;
+                          rdfs:subPropertyOf owl:topDataProperty .
+
+
+###  http://www.hkust.edu.hk/zhaojiwu/performance_based_generative_design#hasVisibleTransmittance
+pgd:hasVisibleTransmittance rdf:type owl:DatatypeProperty ;
+                            rdfs:subPropertyOf owl:topDataProperty .
+
+
+###  http://www.hkust.edu.hk/zhaojiwu/performance_based_generative_design#hasVolume_m3
+pgd:hasVolume_m3 rdf:type owl:DatatypeProperty .
+
+
+###  http://www.hkust.edu.hk/zhaojiwu/performance_based_generative_design#lowerLimit
+pgd:lowerLimit rdf:type owl:DatatypeProperty .
+
+
+###  http://www.hkust.edu.hk/zhaojiwu/performance_based_generative_design#satisfied
+pgd:satisfied rdf:type owl:DatatypeProperty .
+
+
+###  http://www.hkust.edu.hk/zhaojiwu/performance_based_generative_design#upperLimit
+pgd:upperLimit rdf:type owl:DatatypeProperty .
+
+
+###  https://brickschema.org/schema/Brick#value
+brick:value rdf:type owl:DatatypeProperty ;
+            ns4:definition "The basic value of an entity property" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.hkust.edu.hk/zhaojiwu/performance_based_generative_design#ActivityLevel
+pgd:ActivityLevel rdf:type owl:Class ;
+                  rdfs:subClassOf pgd:PGD .
+
+
+###  http://www.hkust.edu.hk/zhaojiwu/performance_based_generative_design#BuildingType
+pgd:BuildingType rdf:type owl:Class ;
+                 rdfs:subClassOf pgd:PGD .
+
+
+###  http://www.hkust.edu.hk/zhaojiwu/performance_based_generative_design#ClimateZone
+pgd:ClimateZone rdf:type owl:Class ;
+                rdfs:subClassOf pgd:PGD .
+
+
+###  http://www.hkust.edu.hk/zhaojiwu/performance_based_generative_design#Constraint
+pgd:Constraint rdf:type owl:Class ;
+               rdfs:subClassOf pgd:PGD .
+
+
+###  http://www.hkust.edu.hk/zhaojiwu/performance_based_generative_design#Construction
+pgd:Construction rdf:type owl:Class ;
+                 rdfs:subClassOf pgd:PGD .
+
+
+###  http://www.hkust.edu.hk/zhaojiwu/performance_based_generative_design#ForecastWeather
+pgd:ForecastWeather rdf:type owl:Class ;
+                    rdfs:subClassOf pgd:Weather .
+
+
+###  http://www.hkust.edu.hk/zhaojiwu/performance_based_generative_design#HistoricWeather
+pgd:HistoricWeather rdf:type owl:Class ;
+                    rdfs:subClassOf pgd:Weather .
+
+
+###  http://www.hkust.edu.hk/zhaojiwu/performance_based_generative_design#IdealLoadsAirSystem
+pgd:IdealLoadsAirSystem rdf:type owl:Class ;
+                        rdfs:subClassOf pgd:PGD .
+
+
+###  http://www.hkust.edu.hk/zhaojiwu/performance_based_generative_design#Index
+pgd:Index rdf:type owl:Class ;
+          rdfs:subClassOf pgd:PGD .
+
+
+###  http://www.hkust.edu.hk/zhaojiwu/performance_based_generative_design#Material
+pgd:Material rdf:type owl:Class ;
+             rdfs:subClassOf pgd:PGD .
+
+
+###  http://www.hkust.edu.hk/zhaojiwu/performance_based_generative_design#PGD
+pgd:PGD rdf:type owl:Class .
+
+
+###  http://www.hkust.edu.hk/zhaojiwu/performance_based_generative_design#Power
+pgd:Power rdf:type owl:Class ;
+          rdfs:subClassOf pgd:PGD .
+
+
+###  http://www.hkust.edu.hk/zhaojiwu/performance_based_generative_design#Schedule
+pgd:Schedule rdf:type owl:Class ;
+             rdfs:subClassOf pgd:PGD .
+
+
+###  http://www.hkust.edu.hk/zhaojiwu/performance_based_generative_design#SpaceType
+pgd:SpaceType rdf:type owl:Class ;
+              rdfs:subClassOf pgd:PGD .
+
+
+###  http://www.hkust.edu.hk/zhaojiwu/performance_based_generative_design#TMYWeather
+pgd:TMYWeather rdf:type owl:Class ;
+               rdfs:subClassOf pgd:Weather .
+
+
+###  http://www.hkust.edu.hk/zhaojiwu/performance_based_generative_design#Weather
+pgd:Weather rdf:type owl:Class ;
+            rdfs:subClassOf pgd:PGD .
+
+
+###  http://www.hkust.edu.hk/zhaojiwu/performance_based_generative_design#WindowMaterial
+pgd:WindowMaterial rdf:type owl:Class ;
+                   rdfs:subClassOf pgd:PGD .
+
+
+###  http://www.semanticweb.org/louis/ontologies/2022/8//building_energy_simulation#BOT
+<http://www.semanticweb.org/louis/ontologies/2022/8//building_energy_simulation#BOT> rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/louis/ontologies/2022/8//building_energy_simulation#Brick
+<http://www.semanticweb.org/louis/ontologies/2022/8//building_energy_simulation#Brick> rdf:type owl:Class .
+
+
+###  https://brickschema.org/schema/Brick#AHU
+brick:AHU rdf:type owl:Class ;
+          owl:equivalentClass brick:Air_Handler_Unit ,
+                              brick:Air_Handling_Unit ;
+          rdfs:subClassOf brick:HVAC_Equipment ;
+          ns4:definition "Assembly consisting of sections containing a fan or fans and other necessary equipment to perform one or more of the following functions: circulating, filtration, heating, cooling, heat recovery, humidifying, dehumidifying, and mixing of air. Is usually connected to an air-distribution system."@en .
+
+
+###  https://brickschema.org/schema/Brick#Air_Handler_Unit
+brick:Air_Handler_Unit rdf:type owl:Class ;
+                       rdfs:subClassOf brick:HVAC_Equipment .
+
+
+###  https://brickschema.org/schema/Brick#Air_Handling_Unit
+brick:Air_Handling_Unit rdf:type owl:Class ;
+                        rdfs:subClassOf brick:HVAC_Equipment .
+
+
+###  https://brickschema.org/schema/Brick#Cooling_Temperature_Setpoint
+brick:Cooling_Temperature_Setpoint rdf:type owl:Class ;
+                                   rdfs:subClassOf brick:Temperature_Setpoint ;
+                                   ns4:definition "Sets temperature for cooling"@en .
+
+
+###  https://brickschema.org/schema/Brick#Electrical_Equipment
+brick:Electrical_Equipment rdf:type owl:Class ;
+                           rdfs:subClassOf brick:Equipment .
+
+
+###  https://brickschema.org/schema/Brick#Equipment
+brick:Equipment rdf:type owl:Class ;
+                rdfs:subClassOf <http://www.semanticweb.org/louis/ontologies/2022/8//building_energy_simulation#Brick> ;
+                ns4:definition "devices that serve all or part of the building and may include electric power, lighting, transportation, or service water heating, including, but not limited to, furnaces, boilers, air conditioners, heat pumps, chillers, water heaters, lamps, luminaires, ballasts, elevators, escalators, or other devices or installations."@en .
+
+
+###  https://brickschema.org/schema/Brick#FCU
+brick:FCU rdf:type owl:Class ;
+          owl:equivalentClass brick:Fan_Coil_Unit ;
+          rdfs:subClassOf brick:Terminal_Unit ;
+          ns4:definition "See Fan_Coil_Unit"@en .
+
+
+###  https://brickschema.org/schema/Brick#Fan_Coil_Unit
+brick:Fan_Coil_Unit rdf:type owl:Class .
+
+
+###  https://brickschema.org/schema/Brick#HVAC_Equipment
+brick:HVAC_Equipment rdf:type owl:Class ;
+                     rdfs:subClassOf brick:Equipment .
+
+
+###  https://brickschema.org/schema/Brick#Heating_Temperature_Setpoint
+brick:Heating_Temperature_Setpoint rdf:type owl:Class ;
+                                   rdfs:subClassOf brick:Temperature_Setpoint ;
+                                   ns4:definition "Sets temperature for heating"@en .
+
+
+###  https://brickschema.org/schema/Brick#Lighting_Equipment
+brick:Lighting_Equipment rdf:type owl:Class ;
+                         rdfs:subClassOf brick:Equipment .
+
+
+###  https://brickschema.org/schema/Brick#Location
+brick:Location rdf:type owl:Class ;
+               rdfs:subClassOf <http://www.semanticweb.org/louis/ontologies/2022/8//building_energy_simulation#Brick> .
+
+
+###  https://brickschema.org/schema/Brick#Occupancy
+brick:Occupancy rdf:type owl:Class ;
+                rdfs:subClassOf <http://www.semanticweb.org/louis/ontologies/2022/8//building_energy_simulation#Brick> .
+
+
+###  https://brickschema.org/schema/Brick#PAU
+brick:PAU rdf:type owl:Class ;
+          rdfs:subClassOf brick:AHU ;
+          ns4:definition "A type of AHU, use to pre-treat the outdoor air before feed to AHU"@en .
+
+
+###  https://brickschema.org/schema/Brick#Point
+brick:Point rdf:type owl:Class ;
+            rdfs:subClassOf <http://www.semanticweb.org/louis/ontologies/2022/8//building_energy_simulation#Brick> .
+
+
+###  https://brickschema.org/schema/Brick#Temperature_Setpoint
+brick:Temperature_Setpoint rdf:type owl:Class ;
+                           rdfs:subClassOf brick:Point .
+
+
+###  https://brickschema.org/schema/Brick#Terminal_Unit
+brick:Terminal_Unit rdf:type owl:Class ;
+                    rdfs:subClassOf brick:Equipment .
+
+
+###  https://brickschema.org/schema/Brick#VAV
+brick:VAV rdf:type owl:Class ;
+          owl:equivalentClass brick:Variable_Air_Volume_Box ;
+          rdfs:subClassOf brick:Terminal_Unit ;
+          ns4:definition "See Variable_Air_Volume_Box"@en .
+
+
+###  https://brickschema.org/schema/Brick#Variable_Air_Volume_Box
+brick:Variable_Air_Volume_Box rdf:type owl:Class ;
+                              rdfs:subClassOf brick:Equipment .
+
+
+###  https://w3id.org/bot#Building
+bot:Building rdf:type owl:Class ;
+             rdfs:subClassOf bot:Zone ;
+             owl:disjointWith bot:Site ,
+                              bot:Space ,
+                              bot:Storey ;
+             rdfs:comment "An independent unit of the built environment with a characteristic spatial structure, intended to serve at least one function or user activity [ISO 12006-2:2013]. A bot:Building is a part of the physical world or a virtual world that is inherently both located in this world and having a 3D spatial extent, is contained in a building site, and can contain one or more storeys that are vertically connected."@en ,
+                          "Bir yapılı ortamına sahip, ve karakteri mekansal olan ve en az bir funksiyona veya kullanıcı etkinligini desteleyen bir bağımsız parcadir. "@tr ,
+                          "Een onafhankelijke entiteit met een ruimtelijke structuur die onderdeel is van de gebouwde omgeving, en bedoeld is om minimaal één functie of gebruikersactiviteit te bedienen [ISO 12006-2:2013]. Een bot:Building is deel van de fysieke wereld of een virtuele wereld dat zowel gelokaliseerd kan worden in deze wereld als een ruimtelijke omvang heeft, is deel van een gebouwsite, en kan één of meerder verdiepingen bevatten die verticaal verbonden zijn."@nl ,
+                          "Eine eigenständige Einheit der bebauten Umgebung mit einer charakteristischen räumlichen Struktur. Es besteht die Absicht das es eine Funktion oder Nutzung erlaubt [ISO 12006-2:2013]. Ein bot:Building ist Teil der realen und virtuellen Welt und hat eine räumliche Ausdehnung. Es ist enthalten in einem Grundstück und kann ein oder mehrere Stockwerke enthalten, die vertical miteinander verbunden sind."@de ,
+                          "En oberoende enhet i den byggda miljön med en karaktäristisk rumslig struktur som stödjer minst en funktion eller användaraktivitet.  [ISO 12006-2:2013]. En bot:Building är en del av den fysiska världen eller en virtuell värld som har en spatial utsträckning i tre dimensioner, ligger på en plats, och kan ha en eller flera vertikalt förbundna våningar."@sv ,
+                          "En uafhængig enhed i det bebyggede miljø med en karakteristisk rumlig struktur, beregnet til at betjene mindst en funktion eller brugeraktivitet [ISO 12006-2: 2013]. En bot:Building er en del af den fysiske verden eller en virtuel verden, der i sagens natur både er lokaliseret i denne verden og har en 3D rumlig afgrænsning, er indeholdt på et byggefelt og kan indeholde en eller flere etager, der er lodret forbundet."@da ,
+                          "Nezávislá jednotka v (stavebnom) prostredí či verejnom priestore, s charakteristickou priestorovou štruktúrou a formou, ktorá má slúžiť aspoň pre jednu činnosť alebo funkciu uživateľa [ISO 12006-2:2013]. Bot:Building je súčasťou fyzického alebo virtuálneho sveta, ktorý je neodmyslitelnľ umiestnľný ako vo fyzickom svete, tak má 3D virtuálny priestorový rozsah, je umiestnený na stavenisku (\"Site\") a môže obsahovať jedno alebo viac podlaží, ktoré sú vertikálne prepojené. "@sk ,
+                          """Nezávislá jednotka v (stavebním) prostředí či veřejném prostoru, s charakteristickou prostorovou strukturou a formou, která má sloužit alespoň pro jednu činnost nebo funkci uživatele [ISO 12006-2: 2013]. 
+Bot:Building je součástí fyzického nebo virtuálního světa, který je neodmyslitelně umístěn jak ve fyzickém světě, tak má 3D virtuální prostorový rozsah, je umístěn na staveništi (\"Site\") a může obsahovat jedno nebo víc podlaží, která jsou vertikálně propojena. """@cs ,
+                          "Rakennetun ympäristön itsenäinen osa, jolla on ominainen avaruudellinen rakenne, ja joka on tarkoitettu palvelemaan ainakin yhtä funktiota tai käyttäjäaktiviteettia [ISO 12006-2:2013]. bot:Building on fyysisen tai virtuaalisen maailman osa, joka luonnostaan sekä sijaitsee tässä maailmassa että omaa kolmiulotteiset tilalliset ulottuvuudet, sijaitsee tontilla, ja se voi sisältää yhden tai useamman kerroksen jotka ovat pystysuunnassa yhteydessä."@fi ,
+                          """Uma unidade independente do ambiente construído com uma estrutura espacial característica, destinada a servir pelo menos uma função do utilizador [ISO 12006-2:2013].
+Um bot:Building é uma parte do mundo físico ou do mundo virtual que está inerentemente localizado neste mundo e que tem uma extensão espacial tridimensional, que está contido num sítio de construção e que contém um ou mais pisos que estão conectados verticalmente."""@pt ,
+                          "Un'unità indipendente dell'ambiente costruito con una struttura spaziale caratteristica, destinato a servire almeno una funzione o attività degli utenti [ISO 12006-2:2013]. Un bot:Building è parte del mondo fisico o virtuale che si trova intrinsecamente in questo mondo e ha una estensione spaziale tridimensionale, è contenuto in un sito e può contenere uno o più piani che sono connessi verticalmente."@it ,
+                          "Une unité indépendante de l'environnement bâti avec une structure spatiale caractéristique, conçue pour répondre à une fonction ou une activité de l'utilisateur [ISO 12006-2:2013]"@fr ,
+                          "Unidad independiente del entorno construido con una estructura espacial característica, destinada a servir al menos una función o actividad del usuario [ISO 12006-2: 2013]. Un bot:Building es tanto una parte del mundo físico o virtual que se encuentra inherentemente situado en este mundo y que tiene una extensión espacial 3D, se encuentra en un emplazamiento de edificación, y puede contener uno o más pisos conectados verticalmente."@es ,
+                          "Unitat independent de l’entorn construït amb una estructura espacial característica, destinada a servir almenys una funció o activitat de l’usuari [ISO 12006-2: 2013]. Un bot:Building és tant una part del món físic o virtual que es troba inherentment situat en aquest món i que té una extensió espacial 3D, es troba en un emplaçament d’edificació, i pot contenir un o més pisos connectats verticalment."@ca ,
+                          "یک واحد مستقل با ساختار مکانی مشخص از محیط ساخت وساز، که برای ارایه‌ی حداقل یک عملکرد یا فعالیت کاربری در نظرگرفته شده است [ISO 12006-2:2013]. یک bot:Building یک بخش از دنیای فیزیکی یا یک دنیای مجازی است که اساسا در این دنیا قرار دارد و دارای حدود مکانی سه بعدی است، دریک سایت ساختمان قرار گرفته ، و میتواند دربرگیرنده‌ی یک یا چند طبقه باشد که به صورت عمودی به هم متصل شده اند."@fa ,
+                          "具有特定空间结构的建筑环境独立单元，旨在服务至少一种功能或用户活动[ISO 12006-2：2013]。 bot:Building是物理或虚拟世界的一部分，其既存在于其中，又具有3D空间范围。bot:Building包含在建筑工地中，并且可以包含一个或多个垂直连接的楼层。"@zh-cn ;
+             rdfs:isDefinedBy bot: ;
+             rdfs:label "Bina"@tr ,
+                        "Budova"@cs ,
+                        "Budova"@sk ,
+                        "Building"@en ,
+                        "Byggnad"@sv ,
+                        "Bygning"@da ,
+                        "Bâtiment"@fr ,
+                        "Edifici"@ca ,
+                        "Edificio"@es ,
+                        "Edificio"@it ,
+                        "Edifício"@pt ,
+                        "Gebouw"@nl ,
+                        "Gebäude"@de ,
+                        "Rakennus"@fi ,
+                        "ساختمان"@fa ,
+                        "建筑"@zh-cn ;
+             ns1:term_status "stable" .
+
+
+###  https://w3id.org/bot#Element
+bot:Element rdf:type owl:Class ;
+            rdfs:subClassOf <http://www.semanticweb.org/louis/ontologies/2022/8//building_energy_simulation#BOT> ;
+            owl:disjointWith bot:Interface ,
+                             bot:Zone ;
+            rdfs:comment "\"Karakteristik fonksiyonu, şekli veya konumu olan bir binanın bileşeni [ISO 12006-2: 2015, 3.4.7]"@tr ,
+                         "Bestanddeel van een gebouwde entiteit met een karakteristieke technische functie, vorm of positie [ISO 12006-2:2015, 3.4.7]"@nl ,
+                         "Bestanddel af et bygværk med en karakteristisk funktion, form eller position [ISO 12006-2:2015, 3.4.7]"@da ,
+                         "Beståndsdel av ett byggnadsverk med en karaktäristisk teknisk funktion, form eller position [ISO 12006-2:2015, 3.4.7]"@sv ,
+                         "Constituant d'un bâtiment remplissant une fonction technique spécifique ou ayant une forme ou une position spécifiques [ISO 12006-2:2015, 3.4.7]"@fr ,
+                         "Constituent d'una entitat de construcció amb una funció tècnica característica, forma o posició [ISO 12006-2:2015, 3.4.7]"@ca ,
+                         "Constituent of a construction entity with a characteristic technical function, form or position [ISO 12006-2:2015, 3.4.7]"@en ,
+                         "Constituinte de uma entidade de construção com uma função técnica característica, forma ou posição [ISO 12006-2:2015, 3.4.7]"@pt ,
+                         "Constituyente de una entidad de construcción con una función técnica característica, forma o posición [ISO 12006-2:2015, 3.4.7]"@es ,
+                         "Costituente di una entità costruttiva con una funzione tecnica caratteristica, forma o posizione [ISO 12006-2:2015, 3.4.7]"@it ,
+                         "Das Bauteil ist im Bauwesen ein einzelnes Teil, ein Element oder eine Komponente, aus denen ein Bauwerk zusammengesetzt wird [ISO 12006-2:2015, 3.4.7]"@de ,
+                         "Rakennetun kokonaisuuden osa, jolla on ominainen tekninen funktio, muoto tai sijainti [ISO 12006-2:2015, 3.4.7]"@fi ,
+                         "Součást stavební entity s charakteristickou technickou funkcí, formou, nebo umístěním [ISO 12006-2, 3.4.7]"@cs ,
+                         "Súčasť stavebnej entity s charakteristickou funkciou, formou, alebo umestením [ISO 12006-2, 3.4.7]"@sk ,
+                         "تشکیل دهنده‌ی یک واحد ساخت با عملکرد فنی، فرم و یا موقعیت   مشخص."@fa ,
+                         "具有特定技术功能，形式或位置的建筑实体组成部分"@zh-cn ;
+            rdfs:isDefinedBy bot: ;
+            rdfs:label "Bauteil (Bauwesen)"@de ,
+                       "Bina elemanı"@tr ,
+                       "Building element"@en ,
+                       "Byggdel"@sv ,
+                       "Bygningsdel"@da ,
+                       "Element de construcció"@ca ,
+                       "Elemento arquitectónico"@pt ,
+                       "Elemento de construcción"@es ,
+                       "Elemento di costruzione"@it ,
+                       "Elementti"@fi ,
+                       "Gebouwelement"@nl ,
+                       "Stavební prvek"@cs ,
+                       "Stavebný prvok"@sk ,
+                       "Élément d'un bâtiment"@fr ,
+                       "المان"@fa ,
+                       "构件"@zh-cn ;
+            ns1:term_status "stable" .
+
+
+###  https://w3id.org/bot#Interface
+bot:Interface rdf:type owl:Class ;
+              rdfs:subClassOf <http://www.semanticweb.org/louis/ontologies/2022/8//building_energy_simulation#BOT> .
+
+
+###  https://w3id.org/bot#Site
+bot:Site rdf:type owl:Class ;
+         rdfs:subClassOf bot:Zone ;
+         owl:disjointWith bot:Space ,
+                          bot:Storey ;
+         rdfs:comment "A part of the physical world or a virtual world that is inherently both located in this world and having a 3D spatial extent. It is intended to contain or contains one or more buildings."@en ,
+                      "Bir veya daha fazla bina içeren alan."@tr ,
+                      "Een deel van de fysieke wereld of een virtuele wereld dat zowel gelokaliseerd kan worden in deze wereld als een ruimtelijke omvang heeft. Het is bedoeld om één of meerdere gebouwen te bevatten of bevat al één of meerdere gebouwen."@nl ,
+                      "Ein Teil der realen oder virtuellen Welt die beide Teil dieser Welt sind und eine räumliche Ausdehnung hat. Es besteht die Absicht, dass es Gebäude enthält, oder es enthält ein oder mehr Gebäude."@de ,
+                      "En del af den fysiske verden eller en virtuel verden, der i sagens natur både er lokaliseret i denne verden og har en 3D rumlig afgrænsning. En byggegrund er beregnet til at indeholde, eller indeholder én eller flere bygninger."@da ,
+                      "En del av den fysiska världen eller en virtuell värld som har en spatial utsträckning i tre dimensioner. Den är avsedd att innehålla, eller innehåller, en eller flera byggnader."@sv ,
+                      "Fyysisen tai virtuaalisen maailman osa, joka luonnostaan sekä sijaitsee tässä maailmassa että omaa kolmiulotteiset tilalliset ulottuvuudet. Sen on tarkoitus sisältää tai se sisältää yhden tai useamman rakennuksen."@fi ,
+                      "Stavenisko ako časť fyzického, alebo virtuálneho sveta, ktoré sú neodmysliteľne umiestnené ako vo fyzickom svete tak majúc 3D virtuálny priestorový rozsah. Zámerom staveniska je obsahovať aspoň jednu stavbu, napríklad budovu, či stavebnú konštrukciu."@sk ,
+                      """Staveniště jako část fyzického světa nebo virtuálního světa které jsou neodmyslitelně umístěna jak ve fyzickém světě tak majíce 3D virtuální prostorový rozsah. Záměrem staveniště je obsahovat alespoň jednu stavbu, např. budovu či stavební konstrukci.
+"""@cs ,
+                      "Uma parte do mundo físico ou do mundo virtual que está inerentemente localizada neste mundo e que tem uma extensão espacial tridimensional. Contém ou destina-se a conter um ou mais edifícios."@pt ,
+                      "Un site comprend un ou plusieurs bâtiments"@fr ,
+                      "Una part del món físic o un món virtual que es troba inherentment ubicada en aquest món i que té una extensió espacial en 3D. Està destinada a contenir un contingut o més edificis."@ca ,
+                      "Una parte del mondo fisico o virtuale che si trova intrinsecamente in questo mondo e ha una estensione spaziale tridimensionale. Un sito contiene o è destinato a contenere uno o più edifici."@it ,
+                      "Una parte del mundo físico o un mundo virtual que está inherentemente ubicada en este mundo y que tiene una extensión espacial en 3D. Está destinado a contener o contiene uno o más edificios."@es ,
+                      """بخشی از دنیای فیزیکی، و یا مجازی که اساساً در دنیا وجود دارد و دارای حدود مکانی سه بعدی است. یک عنصر سایت در برگیرنده‌ی یک یا چند ساختمان است.
+
+"""@fa ,
+                      "本质上是存在于物理世界或虚拟世界的一部分，并具有3D空间范围。它旨在包含一个或多个建筑物。"@zh-cn ;
+         rdfs:isDefinedBy bot: ;
+         rdfs:label "Arsa"@tr ,
+                    "Grund"@da ,
+                    "Grundstück"@de ,
+                    "Lloc"@ca ,
+                    "Plats"@sv ,
+                    "Site"@en ,
+                    "Site"@fr ,
+                    "Sitio"@es ,
+                    "Sito"@it ,
+                    "Stavenisko, stavebný pozemok, stavebná plocha, zastavaná plocha."@sk ,
+                    "Staveniště, stavební pozemek, stavební plocha, zastavěná plocha."@cs ,
+                    "Sítio"@pt ,
+                    "Terrein"@nl ,
+                    "Tontti"@fi ,
+                    "سایت"@fa ,
+                    "地点"@zh-cn ;
+         ns1:term_status "stable" .
+
+
+###  https://w3id.org/bot#Space
+bot:Space rdf:type owl:Class ;
+          rdfs:subClassOf bot:Zone ;
+          owl:disjointWith bot:Storey ;
+          rdfs:comment "A part of the physical world or a virtual world whose 3D spatial extent is bounded actually or theoretically, and provides for certain functions within the zone it is contained in."@en ,
+                       "Een deel van de fysieke wereld of een virtuele wereld waarvan de driedimensionale omvang feitelijk of virtueel begrensd is, en dat bepaalde activiteiten faciliteert in de zone die de ruimte bevat."@nl ,
+                       "Ein Teil der realen oder virtuellen Welt, dessen räumliche Ausdehnung tatsächlich oder virtuell begrenzt ist. In der Zone in der es enthalten ist stellt es bestimmte Funktionen bereit."@de ,
+                       "En del af den fysiske verden eller en virtuel verden, hvis 3D-rumlige omfang er afgrænset faktisk eller teoretisk, og giver bestemte funktioner inden for den zone, den er indeholdt i."@da ,
+                       "En del av den fysiska världen eller en virtuell värld vars spatiala utsträckning i tre dimensioner är faktiskt eller teoretiskt begränsad, och som tillhandahåller vissa funktioner för zonen den är inrymd i."@sv ,
+                       "Fiziksel dünyanın veya sanal dünyanın, 3D mekansal kapsamı gerçekte veya teorik olarak tanımlanmış olan ve içinde bulunduğu bölgede belirli fonksiyonları yerine getiren bir kısmıdır."@tr ,
+                       "Ohraničený troj-rozmerný rozsah definovaný fyzicky nebo pojmovo [ISO 12006-2 (DIS 2013), 3.4.3]"@sk ,
+                       "Ohraničený troj-rozměrný rozsah definovaný fyzicky nebo pojmově [ISO 12006-2 (DIS 2013), 3.4.3]"@cs ,
+                       "Osa fyysisestä -tai virtuaalista maailmasta, jonka 3D-tila on rajattu oikeasti tai teoreettisesti ja tarjoaa tiettyjä toimintoja vyöhykkeellä, johon se sisältyy."@fi ,
+                       "Uma parte do mundo físico ou de um mundo virtual cuja extensão espacial 3D esteja delimitada de forma efectiva ou teórica, que fornece certas funções dentro da zona em que está contido."@pt ,
+                       "Una part de el món físic o d'un món virtual l'extensió espacial tridimensional està limitada física o teòricament, i proveeix certes funcions dins de la zona on està continguda."@ca ,
+                       "Una parte del mondo fisico o virtuale il cui spazio 3D è delimitato effettivamente o virtualmente, e fornisce determinate funzioni all'interno della zona in cui è contenuta."@it ,
+                       "Una parte del mundo físico o de un mundo virtual cuya extensión espacial tridimensional está limitada física o teóricamente, y provee ciertas funciones dentro de la zona donde está contenida."@es ,
+                       "Une partie du monde physique ou virtuel dont l'extension 3D est limitée réellement ou théoriquement, et apporte des fonctions aux zones dans laquelle elle est contenue."@fr ,
+                       """بخشی از دنیای فیزیکی، و یا مجازی که وسعت مکانی سه بعدی آن از نظر حقیقی و یا تئوری محدود است، و عملکردهای مشخصی را در منطقه‌ای که در آن قرار گرفته ارائه می دهد.
+"""@fa ,
+                       "是物理世界或虚拟世界的一部分，其3D空间范围实际上或在理论上受到限制，可在其所包含的区域内提供某些功能。"@zh-cn ;
+          rdfs:isDefinedBy bot: ;
+          rdfs:label "Espacio"@es ,
+                     "Espai"@ca ,
+                     "Espaço"@pt ,
+                     "Oda"@tr ,
+                     "Pièce"@fr ,
+                     "Priestor"@sk ,
+                     "Prostor"@cs ,
+                     "Raum"@de ,
+                     "Ruimte"@nl ,
+                     "Rum"@da ,
+                     "Space"@en ,
+                     "Spazio"@it ,
+                     "Tila"@fi ,
+                     "Utrymme"@sv ,
+                     "فضا"@fa ,
+                     "空间"@zh-cn ;
+          ns1:term_status "stable" .
+
+
+###  https://w3id.org/bot#Storey
+bot:Storey rdf:type owl:Class ;
+           rdfs:subClassOf bot:Zone ;
+           rdfs:comment "A part of the physical world or a virtual world that is inherently both located in this world and having a 3D spatial extent. A bot:Storey is contained in one or more buildings, and is intended to contain one or more spaces that are horizontally connected. Storeys of a building are connected by means of vertical connections such as elevators and stairs. A bot:Storey encompasses both zones above and below ground, for example, a building with 21 floors above ground, one ground floor and 3 basements is equal to the sentence: A building has 25 instances of bot:Storey."@en ,
+                        "Bir binanın katı"@tr ,
+                        "Correspond à un niveau du bâtiment"@fr ,
+                        "Een deel van de fysieke wereld of een virtuele wereld dat zowel gelokaliseerd kan worden in deze wereld als een ruimtelijke omvang heeft. Een bot:Storey is deel van één of meerdere gebouwen, en is bedoeld om één of meerdere ruimtes te bevatten die horizontaal geconnecteerd zijn. De verdiepingen van een gebouw zijn verbonden door middel van verticale connecties zoals liften en trappen. Een bot:Storey omvat zowel zones boven als onder de grond, bijvoorbeeld een gebouw met 21 verdiepingen boven de grond, één gelijkvloers en 3 kelderverdiepingen is evenwaardig aan de zin: Een gebouw heeft 25 instanties van bot:Storey."@nl ,
+                        "Ein Teil der realen oder virtuellen Welt die beide Teil dieser Welt sind und eine räumliche Ausdehnung hat. Ein bot:Storey ist in einem oder mehreren Gebäuden enthalten und es besteht die Absicht oder es ist der Fall, dass es ein oder mehrere Räume enthält, die horizontal miteinander verbunden sind. Geschosse eines Gebäudes sind vertikal miteinander verbunden, durch zum Beispiel Aufzüge oder Treppen. Ein bot:Storey umfassst zonen die über und unter der Erdoberfläche liegen. Zum Beispiel hat ein Gebäude mit 21 Geschossen über der Erde, ein Erdgeschoss und 3 Kellerstockwerken insgesamt 25 Instanzen von bot:Storey."@de ,
+                        "En del af den fysiske verden eller en virtuel verden, der i sagens natur både er lokaliseret i denne verden og har en 3D rumlig afgrænsning. En bot:Storey er indeholdt i en eller flere bygninger og er beregnet til at indeholde et eller flere rum, der er horisontalt forbundet. Etager i en bygning er forbundet ved hjælp af lodrette forbindelser såsom elevatorer og trapper. En bot:Storey omfatter både zoner over og under jorden, for eksempel en bygning med 21 etager over jorden, en stueetage og 3 kældre er lig med sætningen: En bygning har 25 tilfælde af bot:Storey."@da ,
+                        "En del av den fysiska världen eller en virtuell värld som har en spatial utsträckning i tre dimensioner. En bot:Storey är inrymd i en eller flera byggnader, och är menad att innehålla ett eller flera utrymmen som är förbundna horisontellt. Sådana våningar i en byggnad är förbundna med hjälp av lodrätta förbindelser såsom hissar och trappor. Bot:Storey kan användas för att beskriva såväl våningar över som under mark; till exempel så har en byggnad med 21 våningar över marken, en entrénvåning, och tre källarvåningar totalt 25 bot:Storey-instanser."@sv ,
+                        "Fyysisen tai virtuaalisen maailman osa, joka luonnostaan sekä sijaitsee tässä maailmassa että omaa kolmiulotteiset tilalliset ulottuvuudet. bot:Storey sisältyy yhteen tai useampaan rakennukseen, ja sen tarkoitus on sisältää yksi tai useampi tila jotka ovat vaakasuunnassa yhteydessä. Rakennuksen kerrokset ovat yhteydessä toisiinsa pystysuuntaisilla yhteyksillä, kuten hisseillä ja rappusilla. bot:Storey kattaa vyöhykkeet sekä maan alla että päällä. Esimerkiksi rakennus, jossa on pohjakerros, 21 kerrosta sen yläpuolella, ja 3 kerrosta kellaria, on yhtäläinen seuraavan lauseen kanssa: rakennuksella on 25 bot:Storey instanssia."@fi ,
+                        """Uma parte do mundo físico ou do mundo virtual que está inerentemente localizada neste mundo e que tem uma extensão espacial tridimensional. 
+Um bot:Storey está contido num ou mais edifícios e está destinado a conter um ou mais espaços que estejam conectados horizontalmente. Os pisos de um edifício estão ligados através de ligações verticais tais como escadas e elevadores.
+Um bot:Storey abrange tanto as zonas acima como abaixo do solo; por exemplo, um edifício com 21 andares acima do solo, um piso térreo e três caves pode ser descrito como: um edifício que possui 25 instâncias de bot:Storey."""@pt ,
+                        "Una part del món físic o virtual que està inherentment ubicat en aquest món i que té una extensió espacial en 3D. Un bot:Storey està contingut en un o més edificis, i està destinat a contenir un o més espais que estan connectats horitzontalment. Les plantes d'un edifici estan connectades per mitjà de connexions verticals com ascensors i escales. Un bot:Storey abasta les dues zones sobre i sota de terra, per exemple, un edifici amb 21 pisos sobre terra, una planta baixa i 3 soterranis hauria de contenir 25 instàncies de bot:Storey."@ca ,
+                        "Una parte del mondo fisico o virtuale che si trova intrinsecamente in questo mondo e ha una estensione spaziale tridimensionale. Un bot:Storey è contenuto in uno o più edifici ed è destinato a contenere uno o più spazi che sono connessi orizzontalmente. I piani di un edificio sono connessi attraverso connessioni verticali come ascensori e scale. Un bot:Storey comprende zone che si trovano sia sopra che sotto il livello del suolo; per esempio, un edificio con un piano terra, ulteriori 21 piani di altezza e 3 piani interrati corrisponde a un edificio con 25 istanze di bot:Storey."@it ,
+                        "Una parte del mundo físico o virtual que está inherentemente ubicado en este mundo y que tiene una extensión espacial en 3D. Un bot:Storey está contenido en uno o más edificios, y está destinado a contener uno o más espacios que están conectados horizontalmente. Las plantas de un edificio están conectadas por medio de conexiones verticales como ascensores y escaleras. Un bot:Storey abarca ambas zonas sobre y debajo del suelo, por ejemplo, un edificio con 21 pisos sobre el suelo, una planta baja y 3 sótanos debería contener 25 instancias de bot:Storey."@es ,
+                        "Časť fyzického alebo virtuálneho sveta, ktorá je neodmyslitelne umiestnená ako vo fyzickom svete, tak má 3D virtuálny priestorový rozsah. Bot:Storey je obsiahnutý v jednej alebo viacero budovách a má obsahovať jeden alebo viacero priestorov, ktoré sú spojené horizontálne. Podlažia budovy sú spojené zvislými spojmi, ako je napríklad výťahová šachta, alebo schodisko. Bot:Storey zahŕňa ako zóny nad, tak pod úrovňou terénu, napríklad, prehlásenie: budova s 21 nadzemnými podlažiami, prízemím a 3 podzemnými podlažiami má rovnaký význam ako prehlásenie: budova má 25 inštancií bot:Storey."@sk ,
+                        "Část fyzického světa nebo virtuálního světa, která je neodmyslitelně umístěna jak ve fyzickém světě tak má 3D virtuální prostorový rozsah. Bot:Storey je obsažen v jedné nebo vícero budovách a má obsahovat jeden nebo vícero prostorů, které jsou spojeny horizontálně. Podlaží budovy jsou spojeny svislými spoji, jako je například výtahová šachta, nebo schodiště. Bot:Storey zahrnuje jak zóny nad tak pod úrovní terénu, například, prohlášení: budova s 21 nadzemními podlažími, jedním přízemím a 3 podzemními podlažími má stejný význam jako prohlášení: budova má 25 instancí bot:Storey."@cs ,
+                        """بخشی از دنیای فیزیکی، و یا مجازی که اساساً هم در دنیا وجود دارد و دارای حدود مکانی سه بعدی میباشند. یک bot:Storey در یک یا چند ساختمان قرار میگیرد، و دربرگیرنده‌ی یک یا چند فضا است که به صورت افقی به هم متصل شده اند.
+طبقه های یک ساختمان از طریق اتصالات عمودی مانند آسانسور و پله به هم متصل میشوند. یک bot:Storey  هر دو منطقه بالا و زیر زمین را پوشش می‎دهد، برای مثال، یک ساختمان با 21 طبقه بالای زمین، یک طبقه همکف و3 طبفه یک ساختمان با 25 عنصر  bot:Storey  است.
+"""@fa ,
+                        "本质上是存在于物理世界或虚拟世界的一部分，并具有3D空间范围。bot：Storey包含在一个或多个建筑物中，其旨在包含一个或多个水平连接的空间。 建筑物的楼层通过垂直连接（例如电梯和楼梯）连接。 bot：Storey包含地上和地下两个区域，例如，一栋楼高21层，含有一楼及地下3个地下室的建筑物可以表达为：一栋建筑物有25个bot：Storey实例。"@zh-cn ;
+           rdfs:isDefinedBy bot: ;
+           rdfs:label "Etage"@da ,
+                      "Geschoss (Architektur)"@de ,
+                      "Kat"@tr ,
+                      "Kerros"@fi ,
+                      "Piano di edificio"@it ,
+                      "Pis"@ca ,
+                      "Piso"@es ,
+                      "Piso"@pt ,
+                      "Podlažie"@sk ,
+                      "Podlaží"@cs ,
+                      "Storey"@en ,
+                      "Verdieping"@nl ,
+                      "Våning"@sv ,
+                      "Étage"@fr ,
+                      "طبقه"@fa ,
+                      "楼层"@zh-cn ;
+           ns1:term_status "stable" .
+
+
+###  https://w3id.org/bot#Zone
+bot:Zone rdf:type owl:Class ;
+         rdfs:subClassOf <http://www.semanticweb.org/louis/ontologies/2022/8//building_energy_simulation#BOT> .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( pgd:ForecastWeather
+                pgd:HistoricWeather
+                pgd:TMYWeather
+              )
+] .
+
+
+#################################################################
+#    Rules
+#################################################################
+
+pgd:constraint rdf:type ns2:Variable .
+
+pgd:index rdf:type ns2:Variable .
+
+pgd:limitvalue rdf:type ns2:Variable .
+
+pgd:actualvalue rdf:type ns2:Variable .
+
+<http://www.hkust.edu.hk/zhaojiwu/building_energy_simulation#spacea> rdf:type ns2:Variable .
+
+<http://www.hkust.edu.hk/zhaojiwu/building_energy_simulation#spaceb> rdf:type ns2:Variable .
+
+<http://www.hkust.edu.hk/zhaojiwu/building_energy_simulation#terminala> rdf:type ns2:Variable .
+
+<http://www.hkust.edu.hk/zhaojiwu/building_energy_simulation#terminalb> rdf:type ns2:Variable .
+
+<http://www.hkust.edu.hk/zhaojiwu/building_energy_simulation#walllista> rdf:type ns2:Variable .
+
+<http://www.hkust.edu.hk/zhaojiwu/building_energy_simulation#walllistb> rdf:type ns2:Variable .
+
+<http://www.hkust.edu.hk/zhaojiwu/building_energy_simulation#spacetypea> rdf:type ns2:Variable .
+
+<http://www.hkust.edu.hk/zhaojiwu/building_energy_simulation#spacetypeb> rdf:type ns2:Variable .
+
+<http://www.hkust.edu.hk/zhaojiwu/building_energy_simulation#setpointa> rdf:type ns2:Variable .
+
+<http://www.hkust.edu.hk/zhaojiwu/building_energy_simulation#schedulea> rdf:type ns2:Variable .
+
+<http://www.hkust.edu.hk/zhaojiwu/building_energy_simulation#setpointb> rdf:type ns2:Variable .
+
+<http://www.hkust.edu.hk/zhaojiwu/building_energy_simulation#scheduleb> rdf:type ns2:Variable .
+
+[ ns5:isRuleEnabled "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "Compliance checking: Pass" ;
+   rdf:type ns2:Imp ;
+   ns2:body [ rdf:type ns2:AtomList ;
+              rdf:first [ rdf:type ns2:ClassAtom ;
+                          ns2:classPredicate pgd:Constraint ;
+                          ns2:argument1 pgd:constraint
+                        ] ;
+              rdf:rest [ rdf:type ns2:AtomList ;
+                         rdf:first [ rdf:type ns2:ClassAtom ;
+                                     ns2:classPredicate pgd:Index ;
+                                     ns2:argument1 pgd:index
+                                   ] ;
+                         rdf:rest [ rdf:type ns2:AtomList ;
+                                    rdf:first [ rdf:type ns2:IndividualPropertyAtom ;
+                                                ns2:propertyPredicate pgd:hasIndex ;
+                                                ns2:argument1 pgd:constraint ;
+                                                ns2:argument2 pgd:index
+                                              ] ;
+                                    rdf:rest [ rdf:type ns2:AtomList ;
+                                               rdf:first [ rdf:type ns2:DatavaluedPropertyAtom ;
+                                                           ns2:propertyPredicate pgd:upperLimit ;
+                                                           ns2:argument1 pgd:index ;
+                                                           ns2:argument2 pgd:limitvalue
+                                                         ] ;
+                                               rdf:rest [ rdf:type ns2:AtomList ;
+                                                          rdf:first [ rdf:type ns2:DatavaluedPropertyAtom ;
+                                                                      ns2:propertyPredicate pgd:actualValue ;
+                                                                      ns2:argument1 pgd:index ;
+                                                                      ns2:argument2 pgd:actualvalue
+                                                                    ] ;
+                                                          rdf:rest [ rdf:type ns2:AtomList ;
+                                                                     rdf:first [ rdf:type ns2:BuiltinAtom ;
+                                                                                 ns2:builtin <http://www.w3.org/2003/11/swrlb#lessThanOrEqual> ;
+                                                                                 ns2:arguments ( pgd:actualvalue
+                                                                                                 pgd:limitvalue
+                                                                                               )
+                                                                               ] ;
+                                                                     rdf:rest rdf:nil
+                                                                   ]
+                                                        ]
+                                             ]
+                                  ]
+                       ]
+            ] ;
+   ns2:head [ rdf:type ns2:AtomList ;
+              rdf:first [ rdf:type ns2:DatavaluedPropertyAtom ;
+                          ns2:propertyPredicate pgd:satisfied ;
+                          ns2:argument1 pgd:constraint ;
+                          ns2:argument2 "true"^^xsd:boolean
+                        ] ;
+              rdf:rest rdf:nil
+            ]
+ ] .
+
+[ ns5:isRuleEnabled "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "Thermal zoning" ;
+   rdf:type ns2:Imp ;
+   ns2:body [ rdf:type ns2:AtomList ;
+              rdf:first [ rdf:type ns2:IndividualPropertyAtom ;
+                          ns2:propertyPredicate bot:adjacentZone ;
+                          ns2:argument1 <http://www.hkust.edu.hk/zhaojiwu/building_energy_simulation#spacea> ;
+                          ns2:argument2 <http://www.hkust.edu.hk/zhaojiwu/building_energy_simulation#spaceb>
+                        ] ;
+              rdf:rest [ rdf:type ns2:AtomList ;
+                         rdf:first [ rdf:type ns2:IndividualPropertyAtom ;
+                                     ns2:propertyPredicate brick:feeds ;
+                                     ns2:argument1 <http://www.hkust.edu.hk/zhaojiwu/building_energy_simulation#terminala> ;
+                                     ns2:argument2 <http://www.hkust.edu.hk/zhaojiwu/building_energy_simulation#spacea>
+                                   ] ;
+                         rdf:rest [ rdf:type ns2:AtomList ;
+                                    rdf:first [ rdf:type ns2:IndividualPropertyAtom ;
+                                                ns2:propertyPredicate brick:feeds ;
+                                                ns2:argument1 <http://www.hkust.edu.hk/zhaojiwu/building_energy_simulation#terminalb> ;
+                                                ns2:argument2 <http://www.hkust.edu.hk/zhaojiwu/building_energy_simulation#spaceb>
+                                              ] ;
+                                    rdf:rest [ rdf:type ns2:AtomList ;
+                                               rdf:first [ rdf:type ns2:BuiltinAtom ;
+                                                           ns2:builtin <http://www.w3.org/2003/11/swrlb#equal> ;
+                                                           ns2:arguments ( <http://www.hkust.edu.hk/zhaojiwu/building_energy_simulation#walllista>
+                                                                           <http://www.hkust.edu.hk/zhaojiwu/building_energy_simulation#walllistb>
+                                                                         )
+                                                         ] ;
+                                               rdf:rest [ rdf:type ns2:AtomList ;
+                                                          rdf:first [ rdf:type ns2:SameIndividualAtom ;
+                                                                      ns2:argument1 <http://www.hkust.edu.hk/zhaojiwu/building_energy_simulation#spacetypea> ;
+                                                                      ns2:argument2 <http://www.hkust.edu.hk/zhaojiwu/building_energy_simulation#spacetypeb>
+                                                                    ] ;
+                                                          rdf:rest [ rdf:type ns2:AtomList ;
+                                                                     rdf:first [ rdf:type ns2:IndividualPropertyAtom ;
+                                                                                 ns2:propertyPredicate pgd:hasSchedule ;
+                                                                                 ns2:argument1 <http://www.hkust.edu.hk/zhaojiwu/building_energy_simulation#setpointa> ;
+                                                                                 ns2:argument2 <http://www.hkust.edu.hk/zhaojiwu/building_energy_simulation#schedulea>
+                                                                               ] ;
+                                                                     rdf:rest [ rdf:type ns2:AtomList ;
+                                                                                rdf:first [ rdf:type ns2:IndividualPropertyAtom ;
+                                                                                            ns2:propertyPredicate pgd:hasSchedule ;
+                                                                                            ns2:argument1 <http://www.hkust.edu.hk/zhaojiwu/building_energy_simulation#setpointb> ;
+                                                                                            ns2:argument2 <http://www.hkust.edu.hk/zhaojiwu/building_energy_simulation#scheduleb>
+                                                                                          ] ;
+                                                                                rdf:rest [ rdf:type ns2:AtomList ;
+                                                                                           rdf:first [ rdf:type ns2:ClassAtom ;
+                                                                                                       ns2:classPredicate bot:Space ;
+                                                                                                       ns2:argument1 <http://www.hkust.edu.hk/zhaojiwu/building_energy_simulation#spacea>
+                                                                                                     ] ;
+                                                                                           rdf:rest [ rdf:type ns2:AtomList ;
+                                                                                                      rdf:first [ rdf:type ns2:ClassAtom ;
+                                                                                                                  ns2:classPredicate bot:Space ;
+                                                                                                                  ns2:argument1 <http://www.hkust.edu.hk/zhaojiwu/building_energy_simulation#spaceb>
+                                                                                                                ] ;
+                                                                                                      rdf:rest [ rdf:type ns2:AtomList ;
+                                                                                                                 rdf:first [ rdf:type ns2:DatavaluedPropertyAtom ;
+                                                                                                                             ns2:propertyPredicate pgd:hasExternalWall ;
+                                                                                                                             ns2:argument1 <http://www.hkust.edu.hk/zhaojiwu/building_energy_simulation#spacea> ;
+                                                                                                                             ns2:argument2 <http://www.hkust.edu.hk/zhaojiwu/building_energy_simulation#walllista>
+                                                                                                                           ] ;
+                                                                                                                 rdf:rest [ rdf:type ns2:AtomList ;
+                                                                                                                            rdf:first [ rdf:type ns2:DatavaluedPropertyAtom ;
+                                                                                                                                        ns2:propertyPredicate pgd:hasExternalWall ;
+                                                                                                                                        ns2:argument1 <http://www.hkust.edu.hk/zhaojiwu/building_energy_simulation#spaceb> ;
+                                                                                                                                        ns2:argument2 <http://www.hkust.edu.hk/zhaojiwu/building_energy_simulation#walllistb>
+                                                                                                                                      ] ;
+                                                                                                                            rdf:rest [ rdf:type ns2:AtomList ;
+                                                                                                                                       rdf:first [ rdf:type ns2:IndividualPropertyAtom ;
+                                                                                                                                                   ns2:propertyPredicate pgd:hasSpaceType ;
+                                                                                                                                                   ns2:argument1 <http://www.hkust.edu.hk/zhaojiwu/building_energy_simulation#spacea> ;
+                                                                                                                                                   ns2:argument2 <http://www.hkust.edu.hk/zhaojiwu/building_energy_simulation#spacetypea>
+                                                                                                                                                 ] ;
+                                                                                                                                       rdf:rest [ rdf:type ns2:AtomList ;
+                                                                                                                                                  rdf:first [ rdf:type ns2:IndividualPropertyAtom ;
+                                                                                                                                                              ns2:propertyPredicate pgd:hasSpaceType ;
+                                                                                                                                                              ns2:argument1 <http://www.hkust.edu.hk/zhaojiwu/building_energy_simulation#spaceb> ;
+                                                                                                                                                              ns2:argument2 <http://www.hkust.edu.hk/zhaojiwu/building_energy_simulation#spacetypeb>
+                                                                                                                                                            ] ;
+                                                                                                                                                  rdf:rest [ rdf:type ns2:AtomList ;
+                                                                                                                                                             rdf:first [ rdf:type ns2:ClassAtom ;
+                                                                                                                                                                         ns2:classPredicate brick:Cooling_Temperature_Setpoint ;
+                                                                                                                                                                         ns2:argument1 <http://www.hkust.edu.hk/zhaojiwu/building_energy_simulation#setpointb>
+                                                                                                                                                                       ] ;
+                                                                                                                                                             rdf:rest [ rdf:type ns2:AtomList ;
+                                                                                                                                                                        rdf:first [ rdf:type ns2:ClassAtom ;
+                                                                                                                                                                                    ns2:classPredicate brick:Cooling_Temperature_Setpoint ;
+                                                                                                                                                                                    ns2:argument1 <http://www.hkust.edu.hk/zhaojiwu/building_energy_simulation#setpointa>
+                                                                                                                                                                                  ] ;
+                                                                                                                                                                        rdf:rest [ rdf:type ns2:AtomList ;
+                                                                                                                                                                                   rdf:first [ rdf:type ns2:IndividualPropertyAtom ;
+                                                                                                                                                                                               ns2:propertyPredicate brick:isPointOf ;
+                                                                                                                                                                                               ns2:argument1 <http://www.hkust.edu.hk/zhaojiwu/building_energy_simulation#setpointa> ;
+                                                                                                                                                                                               ns2:argument2 <http://www.hkust.edu.hk/zhaojiwu/building_energy_simulation#terminala>
+                                                                                                                                                                                             ] ;
+                                                                                                                                                                                   rdf:rest [ rdf:type ns2:AtomList ;
+                                                                                                                                                                                              rdf:first [ rdf:type ns2:IndividualPropertyAtom ;
+                                                                                                                                                                                                          ns2:propertyPredicate brick:isPointOf ;
+                                                                                                                                                                                                          ns2:argument1 <http://www.hkust.edu.hk/zhaojiwu/building_energy_simulation#setpointb> ;
+                                                                                                                                                                                                          ns2:argument2 <http://www.hkust.edu.hk/zhaojiwu/building_energy_simulation#terminalb>
+                                                                                                                                                                                                        ] ;
+                                                                                                                                                                                              rdf:rest [ rdf:type ns2:AtomList ;
+                                                                                                                                                                                                         rdf:first [ rdf:type ns2:ClassAtom ;
+                                                                                                                                                                                                                     ns2:classPredicate pgd:Schedule ;
+                                                                                                                                                                                                                     ns2:argument1 <http://www.hkust.edu.hk/zhaojiwu/building_energy_simulation#scheduleb>
+                                                                                                                                                                                                                   ] ;
+                                                                                                                                                                                                         rdf:rest [ rdf:type ns2:AtomList ;
+                                                                                                                                                                                                                    rdf:first [ rdf:type ns2:ClassAtom ;
+                                                                                                                                                                                                                                ns2:classPredicate pgd:Schedule ;
+                                                                                                                                                                                                                                ns2:argument1 <http://www.hkust.edu.hk/zhaojiwu/building_energy_simulation#schedulea>
+                                                                                                                                                                                                                              ] ;
+                                                                                                                                                                                                                    rdf:rest [ rdf:type ns2:AtomList ;
+                                                                                                                                                                                                                               rdf:first [ rdf:type ns2:SameIndividualAtom ;
+                                                                                                                                                                                                                                           ns2:argument1 <http://www.hkust.edu.hk/zhaojiwu/building_energy_simulation#schedulea> ;
+                                                                                                                                                                                                                                           ns2:argument2 <http://www.hkust.edu.hk/zhaojiwu/building_energy_simulation#scheduleb>
+                                                                                                                                                                                                                                         ] ;
+                                                                                                                                                                                                                               rdf:rest rdf:nil
+                                                                                                                                                                                                                             ]
+                                                                                                                                                                                                                  ]
+                                                                                                                                                                                                       ]
+                                                                                                                                                                                            ]
+                                                                                                                                                                                 ]
+                                                                                                                                                                      ]
+                                                                                                                                                           ]
+                                                                                                                                                ]
+                                                                                                                                     ]
+                                                                                                                          ]
+                                                                                                               ]
+                                                                                                    ]
+                                                                                         ]
+                                                                              ]
+                                                                   ]
+                                                        ]
+                                             ]
+                                  ]
+                       ]
+            ] ;
+   ns2:head [ rdf:type ns2:AtomList ;
+              rdf:first [ rdf:type ns2:IndividualPropertyAtom ;
+                          ns2:propertyPredicate pgd:sameThermalZone ;
+                          ns2:argument1 <http://www.hkust.edu.hk/zhaojiwu/building_energy_simulation#spacea> ;
+                          ns2:argument2 <http://www.hkust.edu.hk/zhaojiwu/building_energy_simulation#spaceb>
+                        ] ;
+              rdf:rest rdf:nil
+            ]
+ ] .
+
+[ ns5:isRuleEnabled "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "Compliance checking: Fail" ;
+   rdf:type ns2:Imp ;
+   ns2:body [ rdf:type ns2:AtomList ;
+              rdf:first [ rdf:type ns2:ClassAtom ;
+                          ns2:classPredicate pgd:Constraint ;
+                          ns2:argument1 pgd:constraint
+                        ] ;
+              rdf:rest [ rdf:type ns2:AtomList ;
+                         rdf:first [ rdf:type ns2:ClassAtom ;
+                                     ns2:classPredicate pgd:Index ;
+                                     ns2:argument1 pgd:index
+                                   ] ;
+                         rdf:rest [ rdf:type ns2:AtomList ;
+                                    rdf:first [ rdf:type ns2:IndividualPropertyAtom ;
+                                                ns2:propertyPredicate pgd:hasIndex ;
+                                                ns2:argument1 pgd:constraint ;
+                                                ns2:argument2 pgd:index
+                                              ] ;
+                                    rdf:rest [ rdf:type ns2:AtomList ;
+                                               rdf:first [ rdf:type ns2:DatavaluedPropertyAtom ;
+                                                           ns2:propertyPredicate pgd:upperLimit ;
+                                                           ns2:argument1 pgd:index ;
+                                                           ns2:argument2 pgd:limitvalue
+                                                         ] ;
+                                               rdf:rest [ rdf:type ns2:AtomList ;
+                                                          rdf:first [ rdf:type ns2:DatavaluedPropertyAtom ;
+                                                                      ns2:propertyPredicate pgd:actualValue ;
+                                                                      ns2:argument1 pgd:index ;
+                                                                      ns2:argument2 pgd:actualvalue
+                                                                    ] ;
+                                                          rdf:rest [ rdf:type ns2:AtomList ;
+                                                                     rdf:first [ rdf:type ns2:BuiltinAtom ;
+                                                                                 ns2:builtin <http://www.w3.org/2003/11/swrlb#greaterThan> ;
+                                                                                 ns2:arguments ( pgd:actualvalue
+                                                                                                 pgd:limitvalue
+                                                                                               )
+                                                                               ] ;
+                                                                     rdf:rest rdf:nil
+                                                                   ]
+                                                        ]
+                                             ]
+                                  ]
+                       ]
+            ] ;
+   ns2:head [ rdf:type ns2:AtomList ;
+              rdf:first [ rdf:type ns2:DatavaluedPropertyAtom ;
+                          ns2:propertyPredicate pgd:satisfied ;
+                          ns2:argument1 pgd:constraint ;
+                          ns2:argument2 "false"^^xsd:boolean
+                        ] ;
+              rdf:rest rdf:nil
+            ]
+ ] .
+
+###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi
