@@ -6,3 +6,17 @@ The models are OWL files in Turtle syntax. You can view and edit them in OWL-sup
 `schema_only_PGD_KG_model.owl` is the PGD-KG model with fundamental classes and properties. You can reuse the classes and properties to build your own models.  
 `case1068_PGD_KG_model.owl` and `case6725_PGD_KG_model.owl` are two example models with enriched individuals in a design project.  
 # 2. Graphs of the model
+![](/image/overall_schema.png)
+![](/image/building_domain.png)
+![](/image/site_building.png)
+![](/image/space.png)
+![](/image/building_surface.png)
+![](/image/fenestration_surface.png)
+![](/image/shading.png)
+![](/image/weather.png)
+![](/image/airwall.png)
+![](/image/equipment.png)
+![](/image/lighting.png)
+![](/image/occupancy.png)
+![](/image/HVAC.png)
+![](/image/compliance_checking.png)
